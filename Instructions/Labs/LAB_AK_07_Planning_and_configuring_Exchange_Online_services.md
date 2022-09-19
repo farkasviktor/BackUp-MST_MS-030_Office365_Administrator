@@ -1,420 +1,238 @@
+## Lab 7A: Configuring message transport in Exchange Online
 
+### Exercise 1: Configure message-transport settings
 
-## Module 7: Planning and configuring Exchange Online services
+#### Task 1: Create a custom send and receive connector to enforce TLS
 
-#### Lab A: Configuring message transport in Exchange Online
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-## Exercise 1: Configuring message-transport settings
+1. Open Edge. Browse to the **Exchange admin center** and sign in as the tenant owner.
 
-### Task 1: Connect to Exchange Online in Windows PowerShell
+1. In the navigation menu, select **mail flow** then select **connectors**.
 
-	1. On LON-CL1, on the desktop, double-Select Windows Azure Active Directory Module for Windows PowerShell.
+1. Select **New** (the plus icon).
 
- Note: You might have a Windows PowerShell connection to Office 365 open from a previous lab. If so, you can use the existing connection and skip this step.
+   | Setting | Value |
+   | --- | --- |
+   | From | Office 365 |
+   | To | Partner organization |
+   | Name | Humongous Insurance Outgoing |
+   | When do you want to use this connector? | Only when email messages are sent to these domains: humongousinsurance.com |
+   | How do you want to route email messages? | Use the MX record |
+   | How should Office 365 connect? | Always use Transport Layer Security, Issued by a trusted CA |
+   | Validate this connector | Yes, to postmaster@humongousinsurance.com, but note that this will fail |
 
-	2. In Windows PowerShell, type $cred=Get-Credential, and then press Enter.
+1. Select **New** (the plus icon).
 
-	3. In the Windows PowerShell credential request window, in the User name box, type Admin@yourdomain.hostdomain.com.
+   | Setting | Value |
+   | --- | --- |
+   | From | Partner organization |
+   | To | Office 365 |
+   | Name | Humongous Insurance Incoming |
+   | How do you want to identify the partner organization? | Use the sender’s domain |
+   | What sender domain? | humongousinsurance.com |
+   | What security restrictions do you want to apply? | Reject email messages if they aren’t sent over TLS |
 
-	4. In the Password box, type Pa55w.rd, and then Select OK
+#### Task 2: Create transport rules
 
-	5. In Windows PowerShell, type the following command, and then press Enter:
+1. In the Navigation menu, select **mail flow** then select **rules**.
 
+1. Select the **down arrow** button next to the plus icon then select **Apply disclaimers…**
 
-$Session=New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $cred -Authentication Basic –AllowRedirection
+   | Setting | Value |
+   | --- | --- |
+   | Name | A. Datum disclaimer |
+   | Apply this rule if… | The recipient is located… Outside the organization |
+   | Do the following… | Append the disclaimer… |
+   | Edit text | \<hr /\>Disclaimer goes here. |
+   | Fall back to action | Wrap |
+   | Audit this rule with severity level | Low |
+   | Choose a mode for this rule | Enforce |
 
+1. Select the **down arrow** button next to the plus icon then select **Send messages to a moderator…**
 
-6. Type the following command, and then press Enter:
+   | Setting | Value |
+   | --- | --- |
+   | Name | IT2 Moderation |
+   | Apply this rule if… | The recipient is a member of… IT 2 |
+   | Do the following… | Forward the message for approval to… MOD Administrator |
+   | Audit this rule with severity level | Medium |
+   | Choose a mode for this rule | Enforce |
 
+#### Task 3: Verify transport rules
 
-Import-PSSession $Session
+1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
 
+1. Open **Outlook**, signed in as **Amy**.
 
-### Task 2: Create a custom send and receive connector to enforce TLS
+1. Send an e-mail to **alias@outlook.com** with a subject of “External recipient”.
 
-	1. On the taskbar, Select Microsoft Edge.
+1. Send an email to Holly.
 
-	2. In Microsoft Edge, in the search box, type https://login.microsoftonline.com, and press Enter.
+1. Open a web browser and sign in to **alias@outlook.com**.
 
-	3. At the login page, sign in as Admin@yourdomain.hostdomain.com with the password Xtr3m3L@bs.
+1. Read the email from Amy and verify the disclaimer has been added.
 
-	4. To open the Office 365 admin center, Select Admin.
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-	5. In the Office 365 admin center, on menu on the left, in Admin centers, Select Exchange.
+1. Open **Outlook 2016**, signed in as **MOD Administrator**.
 
-	6. In the Exchange admin center, Select mail flow, and then Select connectors.
+1. Approve Amy’s e-mail message to Holly.
 
-	7. Select New.
+#### Task 4: Create a journal rule
 
-	8. On the Select your mail flow scenario page, in the From box, select Office 365.
+1. Switch to Edge running the Exchange admin center.
 
-	9. In the To box, select Partner organization, and then Select Next.
+1. In the navigation menu, select **compliance management** then select **journal rules**.
 
-	10. On the New connector page, in the Name box, type Humongous Insurance Outgoing, and then Select Next.
+1. Next to **Send undeliverable journal reports to**, select **Select address**. Select **MOD Administrator**
 
-	11. Select Only when email messages are sent to these domains, and then Select Add.
+1. Select **New** (the plus icon).
 
-	12. On the add domain page, type humongousinsurance.com, Select OK, and then Select Next.
+   | Setting | Value |
+   | --- | --- |
+   | Send journal reports to | journal@humongousinsurance.com |
+   | Name | Development journaling |
+   | If the message is sent to or received from… | A specific user or group… Development |
+   | Journal the following messages… | All messages |
 
-	13. Select Use the MX record associated with the partner’s domain, and then Select Next.
 
-	14. Select the Always use Transport Layer Security (TLS) to secure the connection check box, Select Issued by a trusted certificate authority (CA), and then Select Next.
+____________________________________________________________
+## Lab 7B: Configuring email protection and client policies
 
-	15. On the Confirm your settings page, Select Next.
+### Exercise 1: Configure email protection
 
-	16. On the Validate this connector page, Select Add.
+#### Task 1: Configure the malware filter
 
-	17. In the Send the test email to the address box, type postmaster@humongousinsurance.com, Select OK, and then Select Validate.
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-	18. Wait while validation completes, and then Select Close. 
+1. Open Edge. Browse to the **Exchange admin center** and sign in as the tenant owner.
 
-	19. On the Validation Result page, Select Save.
+1. In the navigation menu, select **protection** then select **malware filter**.
 
-	20. In the Warning window, Select Yes.
+1. Select **Default**, and then select **Edit** (the pencil icon).
 
- Note: Validation of mail flow will fail because the connector is to a fictitious organization. This is expected behavior for this lab.
+   | Setting | Value |
+   | --- | --- |
+   | Do you want to notify recipients if their messages are quarantined? | Yes and use custom notification text |
+   | Custom notification text | Malware has been detected. Please wait to be contacted by the IT team. |
+   | Sender notifications | Both internal senders and external senders |
+   | Notify administrator about undelivered messages from internal senders | Admin@adatumXXXXXX.onelearndns.com |
+   | Notify administrator about undelivered messages from external senders | Admin@adatumXXXXXX.onelearndns.com |
 
-	21. In the Exchange admin center, on the connectors tab, Select New.
+#### Task 2: Configure the connection filter
 
-	22. On the Select your mail flow scenario page, in the From box, select Partner organization.
+1. In the navigation menu, select **protection** then select **connection filter**.
 
-	23. In the To box, select Office 365, and then Select Next.
+1. Select **Default**, and then select **Edit** (the pencil icon).
 
-	24. On the New connector page, in the Name box, type Humongous Insurance Incoming, and then Select Next.
+   | Setting | Value |
+   | --- | --- |
+   | IP Block list | Add 191.161.0.0/24 |
+   | Enable safe list | Selected |
 
-	25. Select Use the sender’s domain, and then Select Next.
+#### Task 3: Configure the spam filter
 
-	26. Select Add, type humongousinsurance.com, Select OK, and then Select Next.
+1. In the navigation menu, select **protection** then select **spam filter**.
 
-	27. Select the Reject email messages if they aren’t sent over TLS check box, and then Select Next.
+1. Select **Default**, and then select **Edit** (the pencil icon).
 
-	28. On the Confirm your settings page, Select Save.
+   | Setting | Value |
+   | --- | --- |
+   | Spam | Move message to Junk Email folder |
+   | High confidence spam | Quarantine message |
 
-### Task 3: Create transport rules
+1. Select **New** (the plus icon).
 
-	1. On LON-CL1, in the Exchange admin center page, Select rules.
+   | Setting | Value |
+   | --- | --- |
+   | Name | Sales spam policy |
+   | Spam | Prepend subject line with text. |
+   | High confidence spam | Move message to Junk Email folder |
+   | Prepend subject line with this text | Junk: |
+   | Applied to *(scroll to bottom)* | If the recipient is a member of… Sales |
 
-	2. Select New, and then Select Apply disclaimers.
+#### Task 4: Test the spam-filter *(optional)*
 
-	3. In the new rule window, in the Name box, type A. Datum Disclaimer.
+1. Open a web browser and sign in to **alias@outlook.com**.
 
-	4. In the Apply this rule if box, select The recipient is located, Select Outside the organization, and then Select OK.
+1. Create a new message to **lindsey@adatumXXXXXX.onelearndns.com**.
 
-	5. Select Enter text.
+1. Copy and paste the following into the body of the message and then send.
 
-	6. In the specify disclaimer text window, type &lt;HR&gt; If you are not the intended recipient of this message, you must delete it, and then Select OK.
+   ```
+   XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X
+   ```
 
-	7. Select Select one.
+   *Link*:  https://spamassassin.apache.org/gtube/
 
-	8. In the specify fallback action window, select Wrap, and then Select OK.
+1. Repeat the above, to **francisco@adatumXXXXXX.onelearndns.com**.
 
-	9. In the new rule window, Select Save.
+1. Switch to the Edge tab running **Office 365 Security & Compliance**.
 
-	10. If the Warning window appears, Select Yes.
+1. In the navigation menu, select **Threat management > Review** then select **Quarantine**.
 
-	11. In Exchange admin center, Select New, and then Select Send messages to a moderator.
+1. Review the quarantined messages.
 
-	12. In the new rule window, in the Name box, type Moderate Managers.
+*The GTUBE test email should trigger the anti-spam features of an email system. Often, however, Exchange Online rejects it before the message even reaches a tenant. Check the inbox of alias@outlook.com for any NDRs.*
 
-	13. In the Apply the rule if box, select The recipient is a member of, in the Select Members window, Select Managers, Select add, and then Select OK.
+### Exercise 2: Configure client access policies
 
-	14. In the Do the following box, select Forward the message for approval to, Select MOD Administrator, Select add, and then Select OK.
+#### Task 1: Configure an Outlook Web App policy
 
-	15. In the new rule window, Select Save.
+1. Switch to the Edge tab running **Exchange admin center**.
 
-	16. On LON-CL2, on the taskbar, Select Microsoft Edge.
+1. In the navigation menu, select **permissions** then select **Outlook Web App policies**.
 
-	17. In Microsoft Edge, in the search box, type https://login.microsoftonline.com, and then press Enter.
+1. Select **New** (the plus icon).
 
-	18. Sign in as Francisco@yourdomain.hostdomain.com with the password Pa55w.rd.
+   | Setting | Value |
+   | --- | --- |
+   | Name | Limited features |
+   | Instant messaging | Not selected |
+   | Text messaging | Not selected |
+   | Unified messaging | Not selected |
+   | LinkedIn contact sync | Not selected |
+   | Journaling | Not selected |
+   | Direct File Access | Not selected |
 
-	19. In Office 365, Select Mail.
+1. In the navigation menu, select **recipients** then select **mailboxes**.
 
-	20. In the Mail window, Select New.
+1. Select **Sallie McIntosh**, then select **Edit** (the pencil icon).
 
-	21. In the To field, type [alias@outlook.com](mailto:alias@outlook.com), where [alias@outlook.com](mailto:alias@outlook.com) is the Microsoft account that you configured at the beginning of this course.
+1. On the **mailbox features** tab, next to Email Connectivity, Outlook on the web: Enabled, select **View details**. Assign the **Limited features** policy.
 
-	22. In the Subject field, type Disclaimer Test.
+1. Open **Outlook 2016**, signed in as MOD Administrator.
 
-	23. In the message body, type This message will have a disclaimer, and then Select Send.
+1. Send a message to Sallie, attaching the csv files in C:\Labfiles.
 
-	24. Sign in to Outlook.com, and then verify that the message has the disclaimer If you are not the intended recipient of this message, you must delete it added at the end of the message body. If the message is not in the Inbox, check the Junk folder. 
+1. Open an InPrivate Edge window. Browse to the **Office 365 home page** and sign in as **Sallie**.
 
-	25. In the Mail window in which you are signed is as Francisco, Select New.
+1. Open the e-mail from MOD Administrator. 
 
-	26. In the To field, type Martina.
+*This feature take time to be applied to a mailbox. If necessary, come back to this task later.*
 
-	27. In the Subject field, type Moderation Test.
+#### Task 2: Configure mobile-device access
 
-	28. In the message body, type This message requires approval by Admin, and then Select Send.
+1. Switch to the Edge tab running **Exchange admin center**.
 
-	29. On LON-CL1, Select Start, type Outlook, and then Select Outlook 2016. 
+1. In the navigation menu, select **mobile** then select **mobile device access**.
 
-	30. Type Admin@yourdomain.hostdomain.com and Pa55w.rd in the Windows Security dialog box. 
+1. Select **edit** (right-hand side).
 
-	31. In Outlook, read the approval request, and then Select Approve.
+   | Setting | Value |
+   | --- | --- |
+   | When a mobile device that isn't managed by a rule or personal exemption connects to Exchange | Quarantine |
+   | Select administrators to receive email messages when a mobile device is quarantined | MOD Administrator |
 
-	32. Close Outlook 2016.
+#### Task 3: Configure a mailbox policy for mobile devices
 
-### Task 4: Create a journal rule for members of the research department
+1. In the navigation menu, select **mobile** then select **mobile device mailbox policies**.
 
-	1. On LON-CL1, in the Exchange admin center, Select compliance management, Select journal rules, and then Select Select address.
+1. Select **Default (default)**, and then select **Edit** (the pencil icon).
 
-	2. In the non-delivery reports window, Select Browse, Select MOD Administrator, Select OK, and then Select Save.
-
-	3. In the Warning window, Select OK.
-
-	4. Select New.
-
-	5. In the new journal rule window, in the Send journal reports to box, type journal@humongousinsurance.com.
-
-	6. In the Name box, type Development Messages.
-
-	7. In the If the message is sent to or received from box, select A specific user or group, Select Development, Select add, and then Select OK.
-
-	8. In the Journal the following messages box, select All messages, and then Select Save.
-
-### Task 5: Track internal and external message delivery
-
-	1. On LON-CL1, in the Exchange admin center, Select mail flow, and then Select message trace.
-
-	2. Review the available search options, and then Select search.
-
-	3. In the Message Trace results window, double-Select the message sent to alias@outlook.com.
-
-	4. Review the information in the message, including the message events that show that the disclaimer was applied.
-
-	5. Select Close.
-
-	6. Double-Select the message sent from Francisco to Martina.
-
-	7. Review the information in the message, including that the message was sent for moderation.
-
-	8. Select Close.
-
-	9. In the Message Trace Results window, Select Close.
-
- 
-
-
-Results: After completing the exercise, you will have configured message-transport settings.
-
-
-#### Lab B: Configuring email protection and client policies
-
-## Exercise 1: Configuring email protection
-
-### Task 1: Configure the malware filter
-
-	1. On LON-CL1, in the Exchange admin center, Select protection, and then Select malware filter.
-
-	2. Select Default, and then Select Edit.
-
-	3. In the Default window, Select settings.
-
-	4. Under Notifications, select the Notify internal senders check box.
-
-	5. Select the Notify administrator about undelivered messages from internal senders check box.
-
-	6. In the Administrator email address box, type Admin@yourdomain.hostdomain.com.
-
-	7. Select the Notify administrator about undelivered messages from external senders check box.
-
-	8. In the Administrator email address box, type Admin@yourdomain.hostdomain.com, and then Select Save.
-
-### Task 2: Configure the connection filter
-
-	1. On LON-CL1, in the Exchange admin center, Select connection filter.
-
-	2. Select Default, and then Select Edit.
-
-	3. In the Default window, Select connection filtering.
-
-	4. Under IP Block list, Select Add.
-
-	5. In the add blocked IP address window, type 192.168.0.0/24, and then Select OK.
-
-	6. Select the Enable safe list check box, and then Select Save.
-
-### Task 3: Configure the spam filter
-
-	1. On LON-CL1, in the Exchange admin center, Select spam filter.
-
-	2. Select Default, and then Select Edit.
-
-	3. In the Default window, Select spam and bulk actions.
-
-	4. In the High confidence spam box, select Quarantine message, and then Select Save.
-
-	5. Select Add.
-
-	6. In the new spam filter policy window, in the Name box, type Sales spam policy.
-
-	7. In the Spam box, select Prepend subject line with text.
-
-	8. In the High confidence spam box, select Move message to Junk Email folder.
-
-	9. In the Prepend subject line with this text box, type Junk:.
-
-	10. Scroll to the bottom of the window, and under Applied To, in the If box, select The recipient is a member of, Select Sales, Select add, and then Select OK.
-
-	11. Select Save.
-
-### Task 4: Test the spam-filter settings (optional)
-
-	1. Sign in to your alias@outlook.com account.
-
-	2. Create a new message to send to kendra@Yourdomain.hostdomain.com.
-
-	3. In the body of the message, include the text XJSC4JDBQADN1.NSBN32IDNENGTUBE-STANDARD-ANTI-UBE-TEST-EMAILC.34X, and then send the message.
-
-	4. Create a new message to send to francisco@Yourdomain.hostdomain.com.
-
-	5. In the body of the message, include the text XJSC4JDBQADN1.NSBN32IDNENGTUBE-STANDARD-ANTI-UBE-TEST-EMAILC.34X, and then send the message.
-
-	6. On LON-CL1, in the Exchange admin center, Select protection, and then Select quarantine.
-
-	7. Verify that the message sent to Francisco is in quarantine, but the message sent to Kendra is not.
-
-	8. Select the message sent to Francisco, Select Release Message, and then Select Release selected message(s) to ALL recipients.
-
-	9. In the Warning window, Select Yes.
-
-	10. When processing is complete, Select Close.
-
-	11. On LON-CL2, in Outlook on the web, verify that the message was delivered.
-
-### Task 5: Enable Advanced Threat Protection
-
-	1. Switch to LON-CL1 computer.
-
-	2. In Exchange admin center, Select advanced threats, and then Select safe attachments.
-
-	3. Select New.
-
-	4. In the new safe attachments window, in the Name box, type Sales policy.
-
-	5. Under Safe attachments unknown malware response, Select Replace - Block the attachments with detected malware, continue to deliver the message.
-
-	6. Below Applied To in the If box, select The recipient is a member of.
-
-	7. In the Select Members window, Select Sales, Select add, and then Select OK.
-
-	8. In the new safe attachments policy window, Select Save.
-
-	9. In the Warning window, Select OK.
-
- 
-
-
-Results: After completing this exercise, you should have configured anti-spam and antivirus settings.
-
-
-  
-‎ 
-
-## Exercise 2: Configuring client access policies
-
-### Task 1: Configure an Outlook Web App policy
-
-	1. On LON-CL1, in the Exchange admin center, Select permissions, and then Select Outlook Web App policies.
-
-	2. Select New.
-
-	3. In the new Outlook Web App mailbox policy window, in the Policy name box, type Limited features.
-
-	4. Clear the following check boxes:
-
-		- Instant messaging
-
-		- Text messaging
-
-		- Unified messaging
-
-		- LinkedIn contact sync
-
-		- Journaling
-
-5. Under Private computer or OWA for devices, clear the Direct file access check box, and then Select Save.
-
-6. Select recipients, Select mailboxes, Select Kendra Sexton, and then Select Edit.
-
-7. In the Kendra Sexton window, Select mailbox features.
-
-8. Under Email Connectivity, Select View details.
-
-9. In the Outlook Web App mailbox policy window, Select Browse, Select Limited features, Select OK, and then Select Save.
-
-10. In the Kendra Sexton window, Select Save.
-
-11. On LON-CL1, Select Start, type Outlook and then Select Outlook 2016. If prompted, type Admin@yourdomain.hostdomain.com and Pa55w.rd in the Windows Security dialog box.
-
-12. Select New Email.
-
-13. In the new email window, in the To box, type Kendra@yourdomain.hostdomain.com and then Select Check Names.
-
-14. In the Subject box, type Attachment Test.
-
-15. In the ribbon, Select Attach File, and then Select Browse This PC.
-
-16. In the Insert File window, browse to C:\Windows\Logs\DISM, Select dism, and then Select Insert.
-
-17. Select Send.
-
-18. On LON-CL2, in Outlook on the web, sign out, and then sign in again as Kendra@yourdomain.hostdomain.com with the password Pa55w.rd.
-
-19. On the Outlook page, select your time zone and Select Save.
-
-20. Read the new Attachment Test message.
-
-21. Select the message attachment.
-
-22. Select OK to close the message, indicating that you do not have permission to download files.
-
- Note: In some cases, it may take a few minutes for the new Outlook Web App mailbox policy to take effect.
-
-### Task 2: Configure mobile-device access
-
-	1. On LON-CL1, in the Exchange admin center, Select mobile, and then Select mobile device access.
-
-	2. Select edit.
-
-	3. In the Exchange ActiveSync access settings window, Select Quarantine – Let me decide to block or allow later.
-
-	4. Under Quarantine Notification Email Messages, Select Add, Select MOD Administrator, Select add, and then Select OK.
-
-	5. In the Exchange ActiveSync access settings window, Select Save.
-
-### Task 3: Configure a mailbox policy for mobile devices
-
-	1. On LON-CL1, in the Exchange admin center, on the mobile menu, Select mobile device mailbox policies.
-
-	2. Select Default (default), and then Select Edit.
-
-	3. In the Default window, Select security, and then select the Require a password check box.
-
-	4. Select the Allow simple passwords check box.
-
-	5. Select the Minimum password length check box, enter a value of 4, and then Select Save.
-
-### Task 4: Validate mobile-device management policies (optional)
-
-	1. On your mobile device, add a new ActiveSync account for Francisco Chaves.
-
-	2. If Autodiscover does not detect the server name, enter outlook.office365.com.
-
-	3. Your device will be placed into quarantine, and you must approve the device before you can send and receive messages.
-
-	4. After you configure the Exchange ActiveSync account, the security settings from the mobile-device mailbox policy will apply, and you may be prompted to create a password on your device.
-
-	5. When you finish your testing, you can delete the account from your mobile device.
-
-	6. Leave the virtual machines running for the next lab.
-
- 
-
-
-Results: After completing this exercise, you should have configured client access policies.
-
-
- 
+   | Setting | Value |
+   | --- | --- |
+   | Require a password | Selected |
+   | Allow simple passwords | Selected |
+   | Minimum password length | 6 |
