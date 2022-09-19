@@ -1,220 +1,143 @@
+## Lab 1: Planning and Provisioning Office 365
 
+### Exercise 1: Explore the various administrative portals.
 
-## Module 1: Planning and provisioning Office 365
+During this lab, if asked to save the password or to stay signed in, select **Yes**.
 
-#### Lab: Provisioning Office 365
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-## Exercise 1: Configuring an Office 365 tenant
+1. Open Edge. Browse to the **Office 365 home page** (**https://portal.office.com**). Sign in using the tenant owner (**admin@LODSXXXXXXX.onmicrosoft.com**).
 
-#### Task 1: Confirming that Tenant provisioning availability.
+1. Select the Admin link. This opens the **Microsoft 365 admin center**.
 
-	1. On LON-CL1, logged on as Adatum\Administrator, on the Task bar, click Microsoft Edge.
+1. Close Edge.
 
-	2. In the address bar, type https://Portal.office.com, and then press Enter.
+1. Open Edge. Browse to the **Microsoft 365 admin center** directly (**https://admin.microsoft.com**). Sign in using the tenant owner.
 
-	3. Sign in with the O365 Credentials located in the top right corner under the Files drop down menu. 
+1. In the Navigation menu (the left-hand pane), select **…Show all**.
 
-	4. Select Next.
+1. In the Navigation menu, select **Users > Active users**.
 
-	5. Enter the Password in the O365 Credentials page.
+1. How many users are listed? What licences are assigned to them?
 
-	6. Select Next.
+1. In the Navigation menu, select **Exchange**. This opens the **Exchange admin center**.
 
-	7. a new window will ask if it reduces the number of times you are asked to sign in. Select Yes,
+   You can open this site directly by browsing to **https://outlook.office365.com/ecp**.
 
-	8. if any window should pop up review the information and select Got it.
+1. In the Navigation menu, select **recipients** then select **mailboxes**.
 
-	9. Select the Admin Icon.
+1. How many mailboxes are listed? The number should match the number of active users licensed with Office 365.
 
-	10. On the left hand side select Users. Then Active users.
+1. Select the **Microsoft 365 admin center** browser tab.
 
-	11.  There should be pre-generated users there please confirm that they have been licensed.
+1. In the Navigation menu, select **Azure Active Directory**. This opens the **Azure Active Directory admin center**.
 
-	12. On the left hand side Admin tray select Show all.
+   You can open this site directly by browsing to **https://aad.portal.azure.com**.
 
-	13. Scroll until you see Exchange.
+1. In the navigation menu, select **Azure Active Directory**. In the **Contoso | Overview blade** scroll to the the **Manage** section and select **Users**.
 
-	14. Select Exchange
+1. How many accounts are listed? The number should match the number of active users.
 
-	15. A new window will appear and select Mailboxes under the Recipients header.
+1. Select the **Microsoft 365 admin center** browser tab.
 
-	16. The same users that were displayed in the active users tray should be in the mailboxes tray. 
+1. In the Navigation menu, select **Security**. This opens the **Office 365 Security & Compliance** center.
 
-	17. This means that the tenant had provisioned properly and does not have any issues at this time.
+   You can open this site directly by browsing to **https://protection.office.com**.
 
-### Task 2: Verify Office 365 service health
+1. Select the **Microsoft 365 admin center** browser tab.
 
-	1. Click Health on the left-hand menu, then click Service health to display the Service health dashboard.
+1. In the Navigation menu, select **Compliance**. This opens the new **Microsoft 365 Compliance** portal.
 
-	2. In the left pane, view the status of the Office 365 services. If any services are showing a status other than healthy, click the service. 
+   You can open this site directly by browsing to **https://compliance.microsoft.com**.
 
-	3. Review any service interruption records or additional information in the status page.
+1. Open a new tab and browse to **https://compliance.microsoft.com**. This opens the new **Microsoft 365 Security** portal.
 
- Note: During Microsoft testing, on rare occasions Office 365 did not create the trial tenant properly; as a result, the tenant did not have all the services available to it. If this happens to you, you should create a new trial tenant using a different business email (Microsoft account).
+1. Select the **Microsoft 365 admin center** browser tab.
 
-	4. Close Microsoft Edge. 
+### Exercise 2: Add a DNS domain
 
-	5. If prompted, click Close all tabs.
+1. On **LON-DC1**, signed in as **ADATUM\Administrator**.
 
- 
+1. Open Internet Explorer. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
 
+1. In the Navigation menu, select **Settings > Domains**.
 
-Results: After completing this exercise, you should have successfully provisioned the Office 365 tenant account for A. Datum Corporation.
+1. Select **Add domain**.
 
+1. Type **adatumXXXXXX.onelearndns.com** then select **Use this domain**.
 
-  
-‎ 
+1. Select **Add a TXT record** then **Continue**.
 
-## Exercise 2: Configuring a custom domain
+1. Record the **TXT value**.
 
-### Task 1: Add the custom domain
+1. Open **DNS Manager**.
 
-	1. On LON-CL1, start Microsoft Edge, and then browse to portal.office.com.
+1. Create a new **Forward Lookup Zone**.
 
-	2. Sign in as Holly@Adatumyyxxxxx.onmicrosoft.com with the password Pa55w.rd. 
+   | Setting | Value |
+   | --- | --- |
+   | Zone type | Primary |
+   | Store in Active Directory | Selected |
+   | Replicated | To all DNS servers running on domain controllers in this forest |
+   | Zone name | adatumXXXXXX.onelearndns.com |
+   | Dynamic update | Allow only secure dynamic updates |
 
-	3. Click Admin.
+1. Right-click **adatumXXXXXX.onelearndns.com**, choose **New host (A or AAAA)…**.
 
-	4. In the left-hand menu, point to Settings and then click Domains.
+   | Setting | Value |
+   | --- | --- |
+   | Name | NSadatumXXXXXX | 
+   | IP Address | (Your public IP address) |
 
-	5. Click Add domain. 
+   *Hint*: Before clicking **Add Host**, copy the fully qualified domain name to the clipboard.
+   
+1. Right-click the **Start of Authority (SOA)** record, choose **Properties**.
 
-	6. In the New Domain window, in the text box enter your domain name in the form of Adatumyyxxxxx.hostdomain.com. 
+1. Select the **Start of Authority (SOA)** tab. 
 
-	7. Click Next.
+1. Type (or paste) **NSadatumXXXXXX.adatumXXXXXX.onelearndns.com** in the Primary Server textbox.
 
-	8. On the Verify domain page, click TXT record. 
+1. Select the **Name Servers** tab then select **Edit**.
 
-	9. Write down the TXT record shown in the TXT value column. This entry will be similar to MS=msXXXXXXXX. Record this value below MS=_______________________
+1. Type (or paste) **NSadatumXXXXXX.adatumXXXXXX.onelearndns.com** in the server fully qualified domain name textbox and select **Resolve**. Verify that the IP address is correct (your public IP address) and select **OK** twice.
 
-	10. Switch to LON-DC1.
+1. Right-click **adatumXXXXXX.onelearndns.com**, choose **Other new records…**, **Text (TXT)**.
 
-	11. On the toolbar, click Server Manager. 
+   | Setting | Value |
+   | --- | --- |
+   | Record name | (Leave blank) |
+   | Text | (The TXT value from above) |
 
-	12. Click Tools, and then click DNS.
+1. Switch to the **Microsoft 365 admin center** browser.
 
-	13. Expand LON-DC1, and click Forward Lookup Zones.
+1. On the **Verify you own this domain** page, select **Verify**.
 
-	14. Right-click Forward Lookup Zones and click New Zone.
+1. On the **How do you want to connect your domain?** page, select **Close**. *We will add the DNS records later*.
 
-	15. On the New Zone Wizard page, click Next.
+### Admin Center Reference
 
-	16. On the Zone Type page, verify that Primary zone is selected. Clear the Store the zone in Active Directory check box, and click Next.
+Add these to the favourites list in Edge on LON-CL1.
 
-	17. On the Zone Name page, type Adatumyyxxxxx.hostdomain.com and click Next.
+- Microsoft 365 admin center - [https://admin.microsoft.com](https://admin.microsoft.com) or [https://portal.office.com/adminportal/home](https://portal.office.com/adminportal/home)
 
-	18. On the Zone File page, click Next.
+- Microsoft 365 compliance center - [https://compliance.microsoft.com](https://compliance.microsoft.com)
 
-	19. On the Dynamic Update page, click Next, and then click Finish. 
+- Microsoft 365 security center - [https://security.microsoft.com](https://security.microsoft.com)
 
-	20. Expand Forward Lookup Zones, click and then right-click Adatumyyxxxxx.hostdomain.com, and then click Other New Records.
+- Office 365 Security & Compliance center - [https://protection.office.com](https://protection.office.com)\
+(mostly superseded by the above two)
 
-	21. Under Select a resource record type, scroll down to Text (TXT), and then click Create Record.
+- Microsoft Endpoint Manager admin center - [https://endpoint.microsoft.com](https://endpoint.microsoft.com)
 
-	22. In the New Resource Record box, leave the Record name field blank.
+- Azure Active Directory admin center - [https://aad.portal.azure.com](https://aad.portal.azure.com)
 
-	23. In the Text field, enter MS=msXXXXXXXX that you recorded in Step 9. 
+- Exchange admin center - [https://outlook.office365.com/ecp](https://outlook.office365.com/ecp)
 
-	24. Click OK to create the record.
+- (Preview) Modern Exchange admin center - [https://admin.exchange.microsoft.com](https://admin.exchange.microsoft.com)
 
-	25. In the Resource Record type dialog box, click Done.
+- SharePoint admin center - https://\<TenantName\>-admin.sharepoint.com
 
-	26. Right-click Adatumyyxxxxx.hostdomain.com, and click New Host (A or AAAA).
+- Teams admin center - [https://admin.teams.microsoft.com](https://admin.teams.microsoft.com)
 
-	27. In the New Host box, Under Name, type the name of the external name server as provided by the Lab hosting provider.
 
-	28. Under IP address, provide the IP address of the external name server as provided by the Lab hosting provider.
-
-	29. Click Add Host, click OK, and then click Done.
-
-	30. Double-click the Start of Authority (SOA) record and replace the Primary Server reference with the FQDN of the name server as provided by the Lab hosting provider. Click OK.
-
-	31. Double-click the Name Server (NS) record, and click Edit. Replace the Server fully qualified domain name (FQDN) name with the FQDN of the name server as provided by the Lab hosting provider. Click Resolve, and then click OK twice.
-
-	32. Switch back to LON-CL1 and in the Office 365 Admin center, click Verify.
-
-### Task 2: Completing the custom domain setup
-
-	1. On the Set up your online services page, if it appears, accept the default setting of I’ll manage my own DNS records, and then click Next.
-
-	2. On the Update DNS settings page, review the DNS records that you should add to the domain, select the Skip this step check box, and click Skip.
-
-	3. Click Finish. The domain shows a warning icon because you did not verify the DNS records. You can ignore this warning for now.
-
- 
-
-
-Results: After completing this exercise, you should have:
-
-
-	- Added a custom domain.
-
-	- Verified domain ownership.
-
-
-  
-‎ 
-
-## Exercise 3: Exploring the Office 365 administrator interfaces
-
-### Task 1: Explore the Office 365 admin center
-
-	1. On LON-CL1, in the Admin center, click Home.
-
-	2. On the left navigation menu, scroll down to explore all available items. Expand items such as Users, Groups, Settings, etc.
-
-	3. On the left navigation menu, expand Users, and then click Active users.
-
-	4. Review the users list.
-
-	5. On the left navigation menu, expand Health, and then click Message center, and then in the right pane, review the messages.
-
-	6. Do not close the browser window.
-
-### Task 2: Explore the Exchange admin center
-
-	1. On the left navigation menu, expand Admin centers, and then click Exchange.
-
-	2. A new tab will open displaying Exchange admin center.
-
-	3. On the left navigation menu, click each of the items, and review the results displayed on the right pane.
-
-### Task 3: Explore the Skype for Business admin center
-
-	1. Click the portal.office.com tab.
-
-	2. On the left navigation menu, under Admin centers, click Skype for Business.
-
-	3. A new tab will open displaying Skype for Business admin center.
-
-	4. On the left navigation menu, click each of the items, and review the results displayed on the right pane.
-
-### Task 4: Explore the SharePoint admin center
-
-	1. Click the portal.office.com tab.
-
-	2. On the left navigation menu, click Admin centers, and then click SharePoint.
-
-	3. A new tab will open displaying SharePoint admin center.
-
-	4. On the left navigation menu, click each of the items, and review the results displayed on the right pane.
-
-	5. Close Microsoft Edge.
-
-### Task 5: Explore the Office 365 Security & Compliance Center
-
-	1. Click the portal.office.com tab.
-
-	2. On the left navigation menu, click Admin centers, and then click Security &amp; Compliance.
-
-	3. A new tab will open displaying Security &amp; Compliance admin center.
-
-	4. On the left navigation menu, click each of the items, and then review the results displayed in the right pane.
-
-	5. Close Microsoft Edge.
-
-### Task 6: To prepare for the next module
-
-Keep the virtual machines running for the lab in the next module.
-
-Results: After completing this exercise, you should have provided a high-level overview of administrative portals of Office 365.
+See also https://docs.microsoft.com/en-us/microsoft-365/security/mtp/portals?view=o365-worldwide
