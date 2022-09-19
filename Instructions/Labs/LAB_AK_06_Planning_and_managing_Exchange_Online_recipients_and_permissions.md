@@ -1,288 +1,146 @@
+## Lab 6: Managing Exchange Online recipients and permissions
 
+### Exercise 1: Configure Exchange Online recipients
 
-## Module 6: Planning and managing Exchange Online recipients and permissions
+#### Task 1: Use the Exchange admin center
 
-#### Lab: Managing Exchange Online recipients and permissions
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-## Exercise 1: Configuring Exchange Online recipients
+1. Open Edge. Browse to the **Exchange admin center** and sign in as the tenant owner.
 
-### Task 1: Create user mailboxes
+1. In the Navigation menu, select **recipients** then select **mailboxes**.
 
-	1. On LON-CL1, open Microsoft Edge.
+   Note the mailboxes for the licensed users.
 
-	2. In the address bar, type https://portal.office.com/, and then press Enter.
+1. Select **groups**.
 
-	3. Sign in as Admin@yourdomain.hostdomain.com , with the password Pa55w.rd.
+   Note the default groups.
 
-	4. On the Office 365 home page, Select Admin.
+1. Select the **down arrow** button next to **New Microsoft 365 group**.
 
-	5. In the Office 365 admin center, Select Users and then Select Active Users.
+   Note that the Exchange admin center allows you to create four types of group: Microsoft 365, distribution, Mail-enabled security, and dynamic distribution.
 
-	6. Above the list of users, Select Add a user. 
+#### Task 2: Connect to Exchange Online with Windows PowerShell
 
-	7. On the New user page, enter the following information:
+1. Open **Windows PowerShell ISE** or **Windows PowerShell**.
 
-		- First name: Martina
+1. Create a credential. Sign in as the tenant owner.
 
-		- Last name: Blair
+   ```PowerShell
+   $Credential = Get-Credential
+   ```
 
-		- Display name: Martina Blair
+1. Connect to Exchange Online.
 
-		- User name: Martina
+   ```PowerShell
+   $PSSession = New-PSSession -ConfigurationName "Microsoft.Exchange" -ConnectionUri "https://outlook.office365.com/powershell-liveid/" -Credential $Credential -Authentication "Basic" -AllowRedirection
+   Import-PSSession $PSSession -DisableNameChecking
+   ```
 
-		- Domain: yourdomain.hostdomain.com
+1. Verify connectivity.
 
-		- Location: United Kingdom
+   ```PowerShell
+   Get-AcceptedDomain
+   Get-Mailbox
+   ```
 
-8. Expand the Password area, select the following options, and then Select Add: 
+#### Task 3: Create groups and assign members
 
-	- Select Let me create the password , and then type the following password: Pa55w.rd
+1. Create distribution groups.
 
-	- Make this user change their password when they first sign in: Not selected
+   ```PowerShell
+   New-DistributionGroup -Name "IT2" -Members holly -DisplayName "IT 2"
+   New-DistributionGroup -Name "Development" -Members catherine, tameka -DisplayName "Development"
+   New-DistributionGroup -Name "Sales" -Members lindsey, christie -DisplayName "Sales"   
+   Get-DistributionGroup
+   ```
 
-	- Roles: User (no administrator access)
+#### Task 4: Create resource mailboxes
 
-	- Product licenses: Office 365 Enterprise E5
+1. Create resource mailboxes.
 
-9. On the User was added page, Select Send email and close.
+   ```PowerShell
+   New-Mailbox -Name "Conference Room" -DisplayName "Conference Room" -Room -Alias "conferenceroom"
+   Set-Mailbox -Identity "Conference Room" -ResourceCapacity 25
+   ```
 
-10. Repeat steps 6 to 9 to add the following additional users: 
+   ```PowerShell
+   New-Mailbox -Name "Demonstration Laptop" -DisplayName "Demonstration Laptop" -Equipment -Alias "demonstrationlaptop"
+   ```
 
-	- Matt Villagomez (since [Matt@yourdomain.hostdomain.com](mailto:Matt@adatumyyxxxxx.hostdomain.com) is in use, use the username MattV)
+1. Set auto-accept.
 
-	- Olivia Emerson
+   ```PowerShell
+   Get-Mailbox | ft name, recipienttype*
+   ```
 
-	- Kendra Sexton
+   ```PowerShell
+   Get-Mailbox -RecipientTypeDetails RoomMailbox | Set-CalendarProcessing -AutomateProcessing AutoAccept
+   ```
 
-11. In the Office 365 admin center, on the Admin centers menu, Select Exchange.
+   ```PowerShell
+   Get-Mailbox -RecipientTypeDetails EquipmentMailbox | Set-CalendarProcessing -AutomateProcessing AutoAccept
+   ```
 
-12. In the Exchange admin center, Select recipients. 
+#### Task 5: Test resource mailboxes
 
- Note: It might take a few minutes for the mailboxes to appear. Select the refresh icon periodically until they do.
+1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
 
-###  Task 2: Connect to Exchange Online with Windows PowerShell
+1. Open **Outlook**, signed in as **Amy**.
 
-	1. On the desktop, right-Select Windows Azure Active Directory Module for Windows PowerShell, and then Select Run as administrator. 
+1. Create a meeting. Invite Francisco, Demonstration Laptop and Conference Room.
 
-	2. At the User Account Control prompt, Select Yes.
+1. Wait for the “accepted” messages from Demonstration Laptop and Conference Room.
 
- Note: You can copy and paste these commands into the virtual machine. 
+1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
 
-	3. In the Windows PowerShell window, type the following command, and then press Enter: 
+1. Open **Outlook**, signed in as **Sallie**.
 
+1. Create a meeting at the same time as Amy’s meeting. Select the Scheduling Assistant tab.
 
-$credential = Get-Credential
+   Invite Francisco, Demonstration Laptop and Conference Room. Note that Francisco’s time shows as Tentative and Demonstration Laptop and Conference Room show as Busy.
 
+   Send the meeting request.
 
-	4. In the Enter Credentials dialog box, in the User name box, type Admin@yourdomain.hostdomain.com .
+1. Wait for the “declined” messages from Demonstration Laptop and Conference Room.
 
-	5. In the Password box, type Pa55w.rd, and then Select OK.
+### Exercise 2: Configure role-based access control
 
-	6. In the Windows PowerShell window, type the following command, and then press Enter: 
+#### Task 1: Assign users to built-in role groups
 
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-Connect-MsolService –Credential $credential
+1. Switch to Edge connected to the **Exchange admin center**.
 
+1. In the Navigation menu, select **permissions** then select **admin roles**.
 
-	7. In the Windows PowerShell window, type the following command, and then press Enter: 
+1. Select **Organization Management**, then select **Edit** (the pencil icon).
 
+1. Under **Members**, Select **Add** (the plus icon).
 
-$exchangeSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://outlook.office365.com/powershell-liveid/" -Credential $credential -Authentication "Basic" -AllowRedirection
+1. Add **Holly**.
 
+#### Task 2: Create a new admin role and assign a user to it
 
-	8. In the Windows PowerShell window, type the following command, and then press Enter: 
+1. Switch to PowerShell ISE or PowerShell connected to Exchange Online.
 
+1. Enable customization of the Exchange Online tenant.
 
-Import-PSSession $exchangeSession -DisableNameChecking
+   ```PowerShell
+   Enable-OrganizationCustomization
+   ```
 
+1. Create a new role group and add a member.
 
-	9. In the Windows PowerShell window, type the following command, and then press Enter: 
+   ```PowerShell
+   New-RoleGroup -Name "Branch Office Admins" -Roles "Mail Recipients", "Distribution Groups", "Move Mailboxes", "Mail Recipient Creation"
+   Add-RoleGroupMember "Branch Office Admins" -Member Christie
+   ```
 
+1. Switch to Edge connected to the Exchange admin center.
 
-Get-AcceptedDomain
+1. In the Navigation menu, select **permissions** then select **admin roles**. 
 
+1. Select **Refresh** (the circled arrows icon).
 
- Note: This command returns the list of accepted domains and verifies that you can connect to your Office 365 subscription.
-
-### Task 3: Create groups and assign members
-
-	1. In the Windows PowerShell window, type the following command, and then press Enter to create the IT distribution group with Olivia as a member:
-
-
-New-DistributionGroup -Name IT -Members Olivia
-
-
-	2. Repeat steps 1 to add the following additional groups and members: 
-
-		- Managers
-
-			- Members: Martina
-
-- Development
-
-	- Members: MattV
-
-- Sales
-
-3. Members: Kendra
-
-### Task 4: Create resource mailboxes
-
-	1. In Microsoft Edge, in the Exchange Admin center, in recipients, Select resources. 
-
-	2. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-New-Mailbox -Name "Conference Room" -Room
-
-
-	3. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-Set-CalendarProcessing "Conference Room" -AutomateProcessing AutoAccept
-
-
-	4. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-New-Mailbox -Name "Demonstration Laptop” –Equipment
-
-
-	5. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-Set-CalendarProcessing "Demonstration Laptop” -AutomateProcessing AutoAccept
-
-
- Note: If you receive an error running the Set-CalendarProcessing cmdlet for either of these objects, wait a few moments and repeat. 
-
-	6. Switch to Microsoft Edge, and in the Exchange Admin center, Select Refresh. You should be able to see both resources.
-
-	7. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-Set-Mailbox “Conference Room” –ResourceCapacity “25”
-
-
-	8. Switch to Microsoft Edge, and in the Exchange Admin center, Select Conference Room. You should be able to see the Capacity you configured in the details pane on the right. If not, Select Refresh.
-
-### Task 5: Configure additional Exchange Online recipients
-
-	1. On LON-CL1, browse to C:\Labfiles, and the open ExternalContacts.csv.
-
-	2. Review the file contents, and then close Excel. 
-
-	3. In Microsoft Edge, in the Exchange admin center, Select contacts. 
-
-	4. Switch to Windows PowerShell. 
-
-	5. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-CD C:\Labfiles
-
-
- Note: You can copy and paste these commands into the virtual machine. 
-
-	6. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-Import-Csv .\ExternalContacts.csv | ForEach-Object {New-MailContact -Name $_.Name -DisplayName $_.Name -ExternalEmailAddress $_.ExternalEmailAddress -FirstName $_.FirstName -LastName $_.LastName}
-
-
-	7. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-$contacts = Import-CSV .\ExternalContacts.csv
-
-
-	8. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-$contacts | ForEach {Set-Contact $_.Name -StreetAddress $_.StreetAddress -City $_.City -StateorProvince $_.StateorProvince -PostalCode $_.PostalCode -Phone $_.Phone -MobilePhone $_.MobilePhone -Pager $_.Pager -HomePhone $_.HomePhone -Company $_.Company -Title $_.Title -OtherTelephone $_.OtherTelephone -Department $_.Department -Fax $_.Fax -Initials $_.Initials -Notes $_.Notes -Office $_.Office -Manager $_.Manager}
-
-
-	9. In Microsoft Edge, in the Exchange Admin center, in contacts, Select Refresh. You can see the newly created objects.
-
- 
-
-
-Results: After completing this exercise, you will have created and configured Microsoft Exchange Online recipients.
-
-
-  
-‎ 
-
-## Exercise 2: Configuring role-based access control
-
-### Task 1: Assign users to built-in role groups
-
-	1. In the Exchange admin center, Select permissions. 
-
-	2. On the admin roles tab, Select Organization Management, and then Select Edit. 
-
-	3. In the Role Group window, under Members, Select the + icon. 
-
-	4. In the Select Members window, Select Olivia, Select add, and then Select OK.
-
-	5. In the Role Group window, Select Save.
-
-###  Task 2: Create a new admin role and assign a user to it
-
-	1. Switch to Windows PowerShell. 
-
- Note: 
-
-If possible, use the paste functionality provided by the hosting server to copy and paste these commands into the virtual machine. 
-
-	2. In the Windows PowerShell window, type the following commands, and then press Enter after each command: 
-
-
-Enable-OrganizationCustomization
-
-New-RoleGroup -Name BranchOfficeAdmins -roles “Mail Recipients”, “Distribution Groups”, “Move Mailboxes”, “Mail Recipient Creation”
-
-
-	3. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-Add-RoleGroupMember "BranchOfficeAdmins" -Member Martina
-
-
-	4. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-Get-RoleGroupMember "BranchOfficeAdmins"
-
-
-	5. Switch to Internet Explorer, and then in the Exchange admin center, Select Refresh. Ensure that you can see the new BranchOffice Admins role group.
-
-### Task 3: Create a new role assignment policy
-
-	1. In Microsoft Edge, in the Exchange Admin center, Select user roles. 
-
-	2. Switch to Windows PowerShell. 
-
- Note: If possible, use the paste functionality provided by the hosting server to copy and paste these commands into the virtual machine.. 
-
-	3. In the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-New-RoleAssignmentPolicy "Limited Mailbox Configuration" -Roles MyBaseOptions,MyAddressInformation,MyDisplayName
-
-
-	4. To change the default role assignment policy for new mailboxes, in the Windows PowerShell window, type the following command, and then press Enter: 
-
-
-Set-RoleAssignmentPolicy "Limited Mailbox Configuration" -IsDefault
-
-
-	5. When prompted, type Y, and then press Enter.
-
-	6. In the Exchange admin center, Select Refresh. You can see the new role assignment policy.
-
-### Task 4: Prepare for the next module
-
-	- When you have finished the lab, leave all of the virtual machines running.
-
-Results: After completing this exercise, you will have configured delegated administration of your Exchange Online organization.
+1. Verify that Branch Office Admins is present.
