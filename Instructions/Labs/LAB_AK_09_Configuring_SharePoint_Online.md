@@ -32,7 +32,7 @@
 
 1. Under **My Site Cleanup**, set the **Secondary owner** to **MOD Administrator**. Select **OK** (bottom-right).
 
-1. Close the browser tab.
+1. Close the browser tab. 
 
 #### Task 3: Configure apps
 
