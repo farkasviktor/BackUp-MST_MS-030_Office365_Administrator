@@ -1,335 +1,213 @@
+## Lab 9: Configuring SharePoint Online
 
+### Exercise 1: Configure SharePoint Online settings
 
-## Module 9: Planning and configuring SharePoint Online
+#### Task 1: Configure settings
 
-#### Lab: Configuring SharePoint Online
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-## Exercise 1: Configuring SharePoint Online settings
+1. Open Edge. Browse to the **SharePoint admin center** and sign in as the tenant owner.
 
-### Task 1: Configure settings
+1. Select **Settings** then **Site storage limits**
 
-	1. Ensure you are signed in to the 20347A-LON-CL1 virtual machine as Admin with the password of Pa55w.rd.
+1. Verify that Site storage limits is set to **Automatic**.
 
-	2. In LON-CL1, Select the desktop, on the taskbar, Select Microsoft Edge, and then browse to https://portal.office.com.
+1. In the **SharePoint admin center**, select **Policies > Sharing**. 
 
-	3. Sign in as Admin@M365xyyxxxxx.hostdomain.com (where yyxxxxx is your unique M365x.com number) with the password of Xtr3m3L@bs.
+   Verify that both SharePoint and OneDrive are set to **Most permissive**.
 
-	4. In the Office 365 admin center, Select Admin centers, and then Select SharePoint.
+#### Task 2: Configure user profiles
 
-	5. On the leftmost side, Select settings.
+1. In the **SharePoint admin center**, select **More features**. In the centre pane, under **User profiles** select **Open**.
 
-	6. Under Site Collection Storage Management, Select Automatic.
+1. Select **Manage user profiles**.
 
-	7. Scroll down to Enterprise Social Collaboration.
+1. Enter **Ada**, select **Find**. 
 
-	8. Select Use Yammer.com service.
+1. Edit Ada’s profile. Set the **Manager** to **MOD Administrator**.
 
-	9. Select OK.
+1. Close the browser tab and select **Open** again. *This is because many SharePoint admin pages have no breadcrumb trail.*
 
-	10. On the leftmost side, Select sharing.
+1. Select **Setup My Sites**.
 
-	11. Verify that Allow sharing to authenticated external users and using anonymous access links is selected, and then Select OK.
+1. Under **My Site Cleanup**, set the **Secondary owner** to **MOD Administrator**. Select **OK** (bottom-right).
 
-### Task 2: Configure user profiles
+1. Close the browser tab.
 
-	1. On the leftmost side, Select user profiles.
+#### Task 3: Configure apps
 
-	2. Under people, Select Manage User Profiles. 
+1. In the **SharePoint admin center**, select **More features**. In the centre pane, under **Apps** select **Open**.
 
-	3. In the Find profiles dialog box, type Ada, and then Select Find.
+1. Select **Configure Store settings**. Set **Should Apps for Office from the store be able to start when documents are opened in the browser?** to **No**.
 
-	4. In the result window, in the drop-down list, Select Ada.
+### Exercise 2: Create and configure SharePoint Online site collections
 
-	5. Select edit my profile, and in the Manager box, type Admin.
+#### Task 1: Create a site collection using the portal
 
-	6. Select the check names field and verify that the field displays MOD Administrator.
+1. In the **SharePoint admin center**, select **Sites > Active Sites**, then select **+ Create**.
 
-	7. In the right corner, Select Save and Close.
+1. Create a new **Team site**.
 
-	8. On the left side, Select user profiles.
+   | Setting | Value |
+   | --- | --- |
+   | Site name, email address, address | Marketing |
+   | Group owner | MOD Administrator |
+   | Language | English |
+   | Privacy settings | Private |
+   | Time zone | Pacific Time (US and Canada) |
+   | Site description | Marketing department |
+   | Addition owners | (None) |
+   | Members | (None) |
 
-	9. Under My Site settings, Select Setup My Sites.
+1. In the Active sites list, select the new site’s name. In the right-hand panel select **Policies** then under External sharing, select **Edit**.
 
-	10. Scroll down to My Site Cleanup.
+1. Set **Site content can be shared with** to **Anyone**.
 
-	11. In the secondary owner list, type Admin, and then Select the Check names icon.
+#### Task 2: Create a site collection using Windows PowerShell
 
-	12. Scroll down, and then Select OK.
+   In the script below, replace *LODSAXXXXXX* with your tenant details (for example, LODSA1234567).
 
-### Task 3: Configure apps
+1. Open Edge. Browse to **https://www.microsoft.com/en-us/download/details.aspx?id=35588** (SharePoint Online Management Shell). Download and install the x64 version of the tool.
 
-	1. On the leftmost side, Select apps, and then Select Configure Store Settings.
+1. Run **Windows PowerShell ISE** or **Windows PowerShell**.
 
-	2. In the Apps for Office from the Store window, Select No to disable apps from starting when documents are opened in the browser.
+1. Create a credential. Sign in as the tenant owner.
 
-	3. Select OK, and then close the browser.
+   ```PowerShell
+   $Credential = Get-Credential
+   ```
 
- 
+1. Connect to SharePoint Online.
 
+   ```PowerShell
+   Connect-SPOService -Url https://LODSAXXXXXX-admin.sharepoint.com -Credential $Credential
+   ```
 
-Results: After completing this exercise, you should have configured SharePoint Online service settings.
+1. Verify connectivity.
 
+   ```PowerShell
+   Get-SpoSite
+   Get-SpoWebTemplate
+   ```
 
-  
-‎ 
+1. Create a new site.
 
-## Exercise 2: Creating and configuring SharePoint Online site collections
+   ```PowerShell
+   New-SPOSite -Url https://LODSAXXXXXX.sharepoint.com/sites/AcctsProj -Owner admin@LODSAXXXXXX.onmicrosoft.com -StorageQuota 500 -NoWait -Template PROJECTSITE#0 -Title "Accounts Project"
+   ```
 
-### Task 1: Create a site collection using the SharePoint admin center
+#### Task 3: Configure permissions on the site collections
 
-	1. Open Microsoft Edge and sign in to https://portal.office.com with the user name Admin@M365xyyxxxxx.hostdomain.com, and the password of Xtr3m3L@bs.
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-	2. In the Office 365 admin center, on the left side menu, Select Admin centers, and then Select SharePoint.
+1. In the **SharePoint admin center**, select **Sites > Active Sites**, then select the **Site name** column of **Marketing**.
 
-	3. In the leftmost side, Select Site collections.
+1. Under **Permissions**, **Additional Admins**, select **Manage**. Add **Tameka**.
 
-	4. On the Site Collections ribbon, Select New, and then Select Private Site Collection.
+1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
 
-	5. In the new site collection dialog box, in the Title dialog box, type marketing, in the empty text box, type marketing, and then in the administrator list, type Admin and then Select the Check Names icon. Leave the other settings as suggested. To confirm, Select OK.
+1. Open Edge. Browse to the **Office 365 home page** and sign in as **Tameka**.
 
- Note: SharePoint Online provisions the new marketing site. This process can take a few minutes.
+1. Select SharePoint. Note that Tameka has no sites listed.
 
-	6. After marketing is created, select the https://M365xyyxxxxx.sharepoint.com/sites/marketing check box. 
+1. Open a new browser tab. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**.
 
- Note: It can take a few minutes until the Sharing menu on the ribbon is active. You can speed this up by refreshing the page by pressing the F5 key.
+1. Select **Not following** and wait for the link to change to “Following”.
 
-	7. When the marketing site is selected, on the ribbon, Select Sharing.
+1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
 
-	8. In the Sharing dialog box, select Allow sharing with all external users, and by using anonymous access links, and then Select Save.
+1. Open a new browser tab. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**. Sign in as **Catherine**.
 
- Note: The site settings changes to allow external user sharing. This process is usually done within one minute. Now, external user sharing is enabled and you can use it for this marketing site.
+   This will fail. Catherine’s account is blocked (from a previous lab).
 
-### Task 2: Create a site collection using Windows PowerShell
+1. Close Edge.
 
-	1. To install the SharePoint Online Management Shell, you must first download it from the Microsoft Download Center. To do so, open a new Microsoft Edge tab and browse to http://aka.ms/f04q5o.
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-	2. On the SharePoint Online Management Shell download page, in the Select Language drop-down box, select your appropriate language, and then Select Download.
+1. Open Edge. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
 
-	3. On the Choose the download you want page, select the check box for the 64-bit version and for the most current file. Select Next. 
+1. Unblock Catherine’s account.
 
-	4. If a message about pop-ups appears, Select Allow once.
+1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
 
-	5. In the Internet Explorer dialog box asking whether you want to run or save the file, Select Save and then Select Run.
+1. Open a new browser tab. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**. Sign in as **Catherine**.
 
-	6. On the SharePoint Online Management Shell Setup page, select the I accept the terms in the License Agreement check box, and then Select Install.
+1. In the **You need permission to access this site** box, enter some text and request access.
 
-	7. If a User Account Control dialog box appears, Select Yes.
+1. Close Edge.
 
-	8. When the installation completes, Select Finish.
+1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
 
-	9. Select Start, type sharep, and right-Select SharePoint Online Management Shell, and then Select Run as administrator.
+1. Switch to the **SharePoint** browser tab and refresh the page. Marketing will appear in the **Following* list.
 
-	10. In the User Account Control dialog box, Select Yes.
+1. Switch to the **Marketing - Home** browser tab.
 
-	11. At the command prompt, type the following command, and then press Enter (where yyxxxxx is your unique M365x domain name):
+1. Select **Settings** (the cog icon), **Site permissions**, **Advanced permissions settings**.
 
+1. Select **Show access requests and invitations**. **Approve** Catherine’s request.
 
-Connect-SPOService –Url https://M365xyyxxxxx-admin.sharepoint.com –credential Admin@M365xyyxxxxx.hostdomain.com
+1. Select **Home**.
 
+1. Select **Settings** (the cog icon), **Site permissions**, **Advanced permissions settings**.
 
-12. In the Enter your credentials dialog box, in the Password box, type Xtr3m3L@bs, and then Select OK.
+1. Select **Marketing Members** then **New**.
 
-13. At the command prompt, type the following command, and then press Enter:
+1. Invite Francisco.
 
+1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
 
-New-SPOSite -Url https://M365xyyxxxxx.sharepoint.com/sites/AcctsProj -Owner Admin@M365xyyxxxxx.hostdomain.com -StorageQuota 500 -NoWait -Template PROJECTSITE#0 –Title “Accounts Project”
+1. Open Edge. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**. Sign in as **Catherine**.
 
+   Catherine has access to the site.
 
-14. Close the Windows PowerShell window.
+1. Sign out Catherine and close Edge.
 
-### Task 3: Configure permissions on the site collections
+1. Open Edge. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**. Sign in as **Francisco**.
 
-	1. In LON-CL1, open Microsoft Edge, in the top-right corner, Select the ellipsis, and then Select New InPrivate Window.
+   Francisco has access to the site.
 
-	2. Browse to https://portal.office.com.
+1. Sign out Francisco and close Edge.
 
-	3. Sign in as Admin@M365xyyxxxxx.hostdomain.com, with the password of Xtr3m3L@bs. 
+### Exercise 3: Configure and verify external user sharing
 
-	4. In the Office 365 admin center, Select Admin, and then Select SharePoint.
+#### Task 1: Configure a site collection for external user sharing
 
-	5. On the leftmost side, Select Site collections.
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-	6. Select the https://M365xyyxxxxx.sharepoint.com/sites/marketing check box.
+1. Open Edge. Browse to the **SharePoint admin center** and sign in as the tenant owner.
 
-	7. On the ribbon, Select owners, and then Select Manage Administrators.
+1. In the Navigation menu, select **Sites > Active sites**.
 
-	8. In the Site Collection Administrators text box, type Ada, Select the Check Names icon, and then Select OK.
+1. Select **Policies**, **External Sharing**. Set **Site content can be shared with:** **Anyone**.
 
-	9. Open another InPrivate window, browse to https://M365xyyxxxxx.sharepoint.com/sites/marketing, and sign in as Ada@M365xyyxxxxx.hostdomain.com, with the password of Xtr3m3L@bs.
+1. Open a new browser tab. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/AcctsProj**.
 
-	10. On the upper-right corner, Select the Settings icon (the wheel icon), and then navigate to site settings.
+1. Select **Share** (top-right).
 
-	11. Under Users and Permissions, Select Site collection administrators to open it.
+1. Invite **alias@outlook.com**.
 
-	12. Verify that Ada Russell appears.
+1. Select the **Documents** collection. Create a **Word document** called **Budgets**.
 
-	13. Close the Microsoft Edge window.
+1. Select **Share** (top-right). Select **Anyone with the link can view**. Copy the link.
 
-### Task 4: Verify access to the site collections
+1. Open Outlook on the Web in a new browser tab.
 
-	1. In LON-CL1, open Microsoft Edge.
+1. Send an e-mail to **alias@outlook.com** with a subject of “Document link” and the link pasted into the message body.
 
-	2. Browse to https://M365xyyxxxxx.hostdomain.com/sites/marketing.
+#### Task 2: Verify external user sharing
 
-	3. Sign in as Beth@M365xyyxxxxx.hostdomain.com, with the password of Xtr3m3L@bs. 
+1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
 
- Note: You need permission to access this site, and you need to send an access request for permission to view the site.
+1. Close all Edge windows.
 
-	4. In the You need permission to access this site dialog box, type Please enable Beth’s access to this site, and then Select Request Access.
+1. Open Edge. Open the e-mail client for **alias@outlook.com**.
 
-	5. Close Microsoft Edge, and then reopen it.
+1. Open the “MOD Administrator wants to share Accounts project” e-mail and select **Go To Accounts Project**.
 
-	6. Browse to https://M365xyyxxxx.sharepoint.com/sites/marketing.
+1. Verify that the site loads.
 
-	7. Sign in as Admin@M365xyyxxxxx.hostdomain.com with the password of Xtr3m3L@bs.
+1. Open the “Document link” e-mail and select **Budgets.docx**.
 
-	8. In the top-right corner, Select the Settings icon (the wheel icon), and then Select Site settings.
+1. Verify that the document loads.
 
-	9. Under User and Permissions, Select Site permissions.
-
-	10. Select Show access requests and invitations.
-
-	11. Verify that Beth’s request is listed, and Select Approve.
-
-	12. Select Site Settings, and then Select Site permissions.
-
-	13. Select marketing Members.
-
-	14. Verify that Beth’s account is listed. 
-
-	15. Select New, and then Select Add Users.
-
-	16. In the text box at the top, type Perry, and then Select Perry Brill.
-
-	17. Select Share.
-
-	18. Close Microsoft Edge.
-
-	19. Open Microsoft Edge and connect to https://M365xyyxxxxx.sharepoint.com/sites/marketing.
-
-	20. Sign in as Beth@M365xyyxxxxx.hostdomain.com, with the password of Xtr3m3L@bs. 
-
-	21. Verify that you can access the site.
-
-	22. Close Microsoft Edge, and then reopen it.
-
-	23. Browse to https://M365xyyxxxxx.sharepoint.com/sites/marketing.
-
-	24. Sign in as Perry@M365xyyxxxxx.hostdomain.com, with the password of Xtr3m3L@bs. 
-
-	25. Verify that you can access the site.
-
- 
-
-
-Results: After completing this exercise, you should have created and configured SharePoint Online site collections.
-
-
-  
-‎ 
-
-## Exercise 3: Configuring and verifying external user sharing
-
-### Task 1: Configure global settings for external user sharing
-
-	1. In LON-CL1, open Microsoft Edge.
-
-	2. Browse to https://portal.office.com.
-
-	3. Sign in as Admin@M365xyyxxxxx.hostdomain.com, with the password of Xtr3m3L@bs. 
-
-	4. In the Office 365 admin center, Select Admin, and then Select SharePoint.
-
-	5. On the leftmost side, Select sharing.
-
-	6. Select Allow sharing to authenticated users and anonymous access links, and then Select OK.
-
-### Task 2: Configure a site collection for external user sharing
-
-	1. In Microsoft Edge, Select Site Collections.
-
-	2. Select the https://M365xyyxxxxx.sharepoint.com/sites/AcctsProj check box.
-
-	3. On the ribbon, in the Manage section, Select Sharing.
-
-	4. In the Sharing dialog box, Select Allow sharing with all external users, and by using anonymous access links.
-
-	5. Select Save.
-
-	6. Wait for the operation to complete, which might take about 5 minutes.
-
-	7. Close Microsoft Edge.
-
-	8. Open Microsoft Edge and browse to https://M365xyyxxxxx.sharepoint.com/sites/AcctsProj.
-
-	9. Sign in as Admin@M365xyyxxxxx.hostdomain.com with the password of Xtr3m3L@bs.
-
-	10. In the top-right corner, Select SHARE.
-
-	11. In the Share ‘Accounts Project’ dialog box, type in the email address of the Microsoft account you used to set up Office 365.
-
-	12. In the text box, type You can now access this shared site on M365x Publishing.
-
-	13. Select Share.
-
-	14. Browse to https://M365xyyxxxxx.sharepoint.com/sites/marketing
-
-	15. In the left navigation pane, Select Documents.
-
-	16. Select New, and then Select Word document.
-
-	17. In the Word Online window, type some text, and then wait to check if Saved appears in the document title, and then Select the marketing link. 
-
-	18. In the document list, Select the ellipsis button (…) next to the document you created, and then Select Share.
-
-	19. Select Get a link, and then select Edit link – no sign-in required, and Select Create.
-
-	20. Select the link, right-Select it, and then Select Copy and, if prompted Select Allow.
-
-	21. Select Close.
-
-	22. In the SharePoint Online window, Select the apps icon, and then Select Mail.
-
-	23. If prompted, select your language and time zone, and then Select Save.
-
-	24. Select New.
-
-	25. In the To box, type the email address for your Microsoft Live account, and then in the Subject box, type Shared Document.
-
-	26. In the message box, right-Select, and then Select Paste.
-
-	27. Select SEND.
-
-	28. Close Microsoft Edge.
-
-### Task 3: Verify external user sharing
-
-	1. Open Microsoft Edge and browse to https://outlook.com 
-
-	2. Sign in with your Microsoft Live account.
-
- Note: The Inbox should show two emails from Microsoft Online Services Team. If the messages are not in the Inbox, look in the Junk folder. 
-
-3. Open the message that has the subject: MOD Administrator wants to share Accounts Projects. 
-
-4. Select the Accounts Project link in the email.
-
-5. Select Microsoft Account. Verify that you can access the site. 
-
-6. Close the browser tab. In your inbox, open the second invitation email message with the subject of MOD Administrator wants to share the document.
-
-7. Select the Document link.
-
- Note: You are redirected directly to the Word Document. Word Online opens and shows the document.
-
-	8. Verify that you can access the Word document and then Select Edit in Browser. 
-
-	9. Add some text in this document. 
-
-	10. Close Microsoft Edge.
-
-	11. Leave the virtual machines running for the next lab.
-Results: After completing this exercise, you should have configured a new site collection for external user sharing, and you should have shared a site and a document with external users.
-
-
- 
+1. Close all Edge windows.
