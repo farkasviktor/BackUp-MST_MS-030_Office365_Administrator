@@ -1,34 +1,28 @@
+## Lab 10: Planning and configuring an Office 365 collaboration solution
 
+### Exercise 1: Configure Yammer
 
-## Module 10: Planning and configuring an Office 365 collaboration solution
+1. InLON-CL1, SelectDesktop, open Microsoft Edge from the taskbar, and then browse tohttps://portal.office.com.
 
-#### Lab: Planning and configuring an Office 365 collaboration solution
+2. Sign in asAdmin@M365xyyxxxxx.hostdomain.com (where yyxxxxx is your unique A. Datum number) with the passwordXtr3m3L@bs.
 
-## Exercise 1: Configuring Yammer Enterprise
+3. Select theOffice 365 app launcher icon, and then SelectYammer.
 
-### Task 1: Configure a Yammer organization setting
+4. On theWHO DO YOU WORK WITH? page, Select theX at the top-right corner to close the page.
 
-	1. InLON-CL1, SelectDesktop, open Microsoft Edge from the taskbar, and then browse tohttps://portal.office.com.
+5. In Yammer, in the left pane beside MOD Administrator, Select theSettings icon.
 
-	2. Sign in asAdmin@M365xyyxxxxx.hostdomain.com (where yyxxxxx is your unique A. Datum number) with the passwordXtr3m3L@bs.
+6. SelectNETWORK ADMIN.
 
-	3. Select theOffice 365 app launcher icon, and then SelectYammer.
+7. In Yammer admin center, in the left navigation pane, SelectUsage Policy.
 
-	4. On theWHO DO YOU WORK WITH? page, Select theX at the top-right corner to close the page.
+8. In theUsage Policy window, select theRequire users to accept policy during sign up and after any changes are made to the policy check box.
 
-	5. In Yammer, in the left pane beside MOD Administrator, Select theSettings icon.
+9. In theUsage Policy window, select theDisplay policy reminder in sidebar check box.
 
-	6. SelectNETWORK ADMIN.
+10. In theCustom Policy Title text box, typeM365x Acceptable Use Policy.
 
-	7. In Yammer admin center, in the left navigation pane, SelectUsage Policy.
-
-	8. In theUsage Policy window, select theRequire users to accept policy during sign up and after any changes are made to the policy check box.
-
-	9. In theUsage Policy window, select theDisplay policy reminder in sidebar check box.
-
-	10. In theCustom Policy Title text box, typeM365x Acceptable Use Policy.
-
-	11. In theEnter your policy in the textbox below text box, copy and paste the following text:
+11. In theEnter your policy in the textbox below text box, copy and paste the following text:
 
 Welcome to Yammer! Our goal is to provide a collaborative environment to connect with colleagues and bridge various departments and geographic locations to share meaningful information.
 
@@ -66,29 +60,29 @@ Welcome to Yammer! Our goal is to provide a collaborative environment to connect
 
 ### Task 2: Configure Yammer service settings, and enforce Office 365 identity
 
-	1. In Yammer, in the left pane, Select theSettings icon.
+1. In Yammer, in the left pane, Select theSettings icon.
 
-	2. SelectNETWORK ADMIN.
+2. SelectNETWORK ADMIN.
 
-	3. In Yammer admin center, in the left navigation pane in theContent and Security section, SelectSecurity Settings.
+3. In Yammer admin center, in the left navigation pane in theContent and Security section, SelectSecurity Settings.
 
-	4. Scroll down toOffice365 Identity Enforcement. 
+4. Scroll down toOffice365 Identity Enforcement. 
 
-	5. Select theEnforce Office 365 identity check box.
+5. Select theEnforce Office 365 identity check box.
 
-	6. In the pop-up window, SelectOkay.
+6. In the pop-up window, SelectOkay.
 
-	7. SelectSave.
+7. SelectSave.
 
 ### Task 3: Configure the Yammer user experience
 
-	1. In Yammer, in the left pane, Select theSettings icon, and then SelectEDITSETTINGS.
+1. In Yammer, in the left pane, Select theSettings icon, and then SelectEDITSETTINGS.
 
-	2. In the toolbar, SelectNotifications.
+2. In the toolbar, SelectNotifications.
 
-	3. In theSend me a digest of message activity drop-down list, Selectweekly.
+3. In theSend me a digest of message activity drop-down list, Selectweekly.
 
-	4. Select only the following options in theEmail me when... section:
+4. Select only the following options in theEmail me when... section:
 
 		-I receive a message in my inbox
 
@@ -102,295 +96,282 @@ Welcome to Yammer! Our goal is to provide a collaborative environment to connect
 
 ### Task 4: Using Yammer
 
-	1. OnLON-CL3, open Microsoft Edge, and then connect tohttps://portal.office.com.
+1. OnLON-CL3, open Microsoft Edge, and then connect tohttps://portal.office.com.
 
-	2. Sign in asBeth@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
+2. Sign in asBeth@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
 
-	3. On the Office 365 portal, SelectYammer.
+3. On the Office 365 portal, SelectYammer.
 
-	4. At theWHO DO YOU WORK WITH prompt, typeChristie in the first text box, and then SelectDONE and close the window.
+4. At theWHO DO YOU WORK WITH prompt, typeChristie in the first text box, and then SelectDONE and close the window.
 
-	5. SelectI Accept at theM365x Acceptable Use Policy prompt.
+5. SelectI Accept at theM365x Acceptable Use Policy prompt.
 
-	6. Find the post from MOD Administrator in the post list.
+6. Find the post from MOD Administrator in the post list.
 
-	7. SelectLike, and then SelectSHARE.
+7. SelectLike, and then SelectSHARE.
 
-	8. In theShare This Conversation dialog box, selectPost in a Group, typeAll Company in the drop-down box, and then in the text box, typeWelcome from me too.
+8. In theShare This Conversation dialog box, selectPost in a Group, typeAll Company in the drop-down box, and then in the text box, typeWelcome from me too.
 
-	9. SelectShare.
+9. SelectShare.
 
-	10. SelectAll Company and in theWhat are you working on text box, type “free gambling here”, and then SelectPost.
+10. SelectAll Company and in theWhat are you working on text box, type “free gambling here”, and then SelectPost.
 
-	11. Close Microsoft Edge.
+11. Close Microsoft Edge.
 
-	12. Open Microsoft Edge and browse tohttps://portal.office.com.
+12. Open Microsoft Edge and browse tohttps://portal.office.com.
 
-	13. Sign in asAdmin@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
+13. Sign in asAdmin@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
 
-	14. On the Office 365 portal, SelectMail.
+14. On the Office 365 portal, SelectMail.
 
-	15. Verify that you received a message from Yammer with a report about a monitored keyword appearance in Beth’s post.
+15. Verify that you received a message from Yammer with a report about a monitored keyword appearance in Beth’s post.
 
-	16. Close Microsoft Edge.
-
- 
-
+16. Close Microsoft Edge.
 
 Results: After completing this exercise, you should have enabled Yammer Enterprise for A. Datum Corporation.
 
+### Exercise 2: Configure OneDrive for Business
 
-  
-‎ 
+#### Task 1: Enable OneDrive for Business synchronization (cloud-only users)
 
-## Exercise 2: Configuring OneDrive for Business
+1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
 
-### Task 1: Enable OneDrive for Business synchronization
+1. Open **Word**. Sign in as **Amy**.
 
-	1. OnLON-CL3, SelectStart, SelectAll apps, and then SelectWord 2016. 
+1. Create a document and save it to **OneDrive - Contoso**.
 
-	2. In theWord window, in the top right corner, verify that Word is licensed to Beth Burke.
+1. Open Edge. Browse to the **Office 365 home page** and sign in as **Amy**.
 
-	3. If Word is licensed to another account, SelectSwitch account.
+1. Select **OneDrive**. Verify that the new document is listed.
 
-	4. In theAccounts dialog box, SelectSIGN OUT, and then SelectSign out. In theRemove Account notice, SelectYes. 
+1. Open **File Explorer**.
 
-	5. At the top right, SelectSign in to get the most out of Office.
+1. Select **OneDrive**. Sign in as **Amy**.
 
-	6. On theSign in page, in theE-mail address box, typeBeth@M365xYYXXXXX.hostdomain.com, and then SelectNext.
+1. Once OneDrive synchronisation is complete, select **OneDrive - Contoso**. Verify that the new document is listed.
 
-	7. On theSign in page, in thePassword box, typeXtr3m3L@bs, and then SelectSign in.
+1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
 
-	8. Verify that Word is now licensed to Beth. Close Word.
+1. Open **Word**.
 
-	9. Open Microsoft Edge, and then connect tohttps://portal.office.com.
+1. Select **Account**. Sign out administrator@adatumXXXXXX.onelearndns.com and sign in as **Sallie**.
 
-	10. Sign in asBeth@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
+1. Under **Connected Services**, add **Storage > OneDrive for Business**. Sign in as **Sallie**.
 
-	11. On the Office 365 portal, SelectOneDrive.
+1. Create a document and save it to **OneDrive - Contoso**.
 
-	12. If theWelcome to OneDrive for Business page appears, SelectNext.
+1. Open Edge. Browse to the **Office 365 home page** and sign in as **Sallie**.
 
-	13. In theOneDrive window, SelectNew, and then SelectWord document.
+1. Select **OneDrive**. Verify that the new document is listed.
 
-	14. In theWord Online window, type some text, and then SelectBeth Burke at the top of the window beside Word Online.
+1. Open **File Explorer**.
 
-	15. In theOneDrive window, SelectSync.
+1. Select **OneDrive**. Sign in as **Sallie**.
 
-	16. In theDid you mean to switch apps? dialog box, SelectYes.
+1. Once OneDrive synchronisation is complete, select **OneDrive - Contoso**. Verify that the new document is listed.
 
-	17. In theSync your OneDrive files to this PC dialog box, SelectStart sync.
 
-	18. If prompted to sign in, typeBeth@M365xyyxxxxx.hostdomain.com, and then SelectNext. 
+#### Task 2: Share files with other users
 
-	19. TypeXtr3m3L@bs, and then SelectSign In.
+1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
 
-	20. SelectFile Explorer on the task bar, and then SelectOneDrive - A. Datum.
+1. Open **File Explorer**.
 
-	21. Note that File Explorer displays the location where the synchronized files will be stored. Verify that the Word document has been synchronized to the local computer.
+1. Select **OneDrive - Contoso**.
 
-### Task 2: Create files to synchronize with OneDrive for Business
+1. Create a folder called **Tailspin Project**. Right-click **Tailspin Project**, choose **Share**. Select **Anyone with the link can edit**. Send the link to **Amy Santiago**.
 
-	1. OnLON-CL3, ensure that theOneDrive for Business folder is open in File Explorer.
+1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
 
-	2. On the ribbon in File Explorer, SelectHome, SelectNew folder, and then create a new folder namedPrivate.
+1. Run **Outlook**. Sign in as **Amy**.
 
-	3. On the ribbon, SelectHome, SelectNew folder, and then create a second new folder namedProject A.
+1. Open the “Sallie McIntosh shared the folder” e-mail and select **Tailspin Project**.
 
-	4. Double-Select thePrivate folder. Right-Select in this folder, and on the context menu, SelectNew, and then SelectMicrosoft Word Document. Name the documentHolidays.docx.
+1. Verify that the folder loads (in Edge).
 
-	5. Double-SelectHolidays.docx to open it, and then type some short text. Save the changes, and then close Microsoft Word.
+#### Task 3: Enable OneDrive for Business synchronization (synced users) (*Optional*)
 
-	6. See how the document icon in the taskbar changes from two blue arrows to a small green check mark icon after the synchronization process is complete. The document has been transferred to the cloud storage automatically.
+If Seamless SSO has been set up then the AD DS users will not need to provide passwords to sign in to Office 365 resources.
 
-	7. In the File Explorer window, navigate toOneDrive for Business in the navigation address line to move one level up.
+1. On **LON-CL3**, signed in as **ADATUM\Ada**.
 
-	8. Double-Select the folderProject A. Right-Select in this folder, and on the context menu, SelectNew, and then SelectMicrosoft Word Document. Name the documentProject targets.docx.
+1. Open **Word**.
 
-	9. Double-SelectProject targets.docx to open it, and then type some short text. Save the changes, and then close Microsoft Word.
+1. Select **Account**. If required, sign in as **Ada**.
 
-	10. Verify that the document synchronizes. 
+1. Create a document and save it to **OneDrive - Contoso**.
 
-	11. To view the files online, switch to the Microsoft Edge window. Refresh the view.
+1. Open Edge. Browse to the **Office 365 home page** and sign in as **Ada**.
 
-	12. In theFiles list, you should see your two folders,Private andProject A.
+1. Select **OneDrive**. Verify that the new document is listed.
 
-	13. Navigate to thePrivate folder. Select the synchronized documentHolidays.docx to open it in Word Online.
+1. Open **File Explorer**.
 
-	14. SelectEdit document, and then SelectEdit in Browser. Add some text. The document is saved automatically whenSaved is displayed in the title bar.
+1. Select **OneDrive**. Sign in as **Ada**.
 
-	15. In the menu bar right beside Word Online, SelectBeth Burke to return to OneDrive for Business.
+1. Once OneDrive synchronisation is complete, select **OneDrive - Contoso**. Verify that the new document is listed.
 
-	16. The content of thePrivate folder changes, and you will see that you changed the document online. TheModified column shows that the document changed some seconds (or minutes) ago.
+1. On **LON-CL4**, signed in as **ADATUM\Cai**.
 
-	17. Switch back to File Explorer. Navigate to thePrivate folder, and then openHolidays.docx. You will see that the changes you made in Word Online are synchronized back automatically. 
+1. *Repeat the above steps.*
 
-### Task 3: Share files with other users
+*Note*: Why is the OneDrive for Business folder called “OneDrive - Contoso”? Because the tenant name is “Contoso”.
 
-	1. In File Explorer, right-Select the folderProject A, SelectView online.
+Microsoft 365 admin center, Settings | Org settings, Organization profile, Organization information.
 
-	2. Microsoft Edge opens. Open theProject A folder, right-SelectProject Targets.docx, and then SelectShare.
 
-	3. SharePoint Online automatically opens a dialog box namedShareProject targets.docx.
+### Exercise 3: Configuring Microsoft 365 groups
 
-	4. In the upper text box, typeMOD Administrator.
+#### Task 1: Configure a private Microsoft 365 group using the portal
 
-	5. Ensure that the textAnyone with this link can edit this item is show, add a short message in the message text box below, and then SelectShare.
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-	6. Open a new InPrivate Microsoft Edge window, and then connect tohttps://portal.office.com. 
+1. Open Edge. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
 
-	7. Sign in asAdmin@M365xyyxxxxx.hostdomain.com by using the passwordXtr3m3L@bs.
+1. In the Navigation menu, select **Groups > Active groups**.
 
-	8. In the Office 365 portal, SelectMail.
+1. Add a group.
 
-	9. Select the message with the subjectBeth Burke has shared Project Targets. 
+   | Setting | Value |
+   | --- | --- |
+   | Type | Microsoft 365 |
+   | Name | ADatum Marketing |
+   | Description | A. Datum Corporation Marketing team |
+   | Owners | MOD Administrator, Holly Dickson |
+   | Group email address | adatummarketing@adatumXXXXXX.onelearndns.com |
+   | Privacy | Private |
+   | Create a team for this group | Selected |
 
-	10. In the message box, SelectProject Targets. 
+1. **Refresh** the list until ADatum Marketing appears.
 
-	11. When the document opens, SelectEdit in Browser. Verify that you can open the document and edit it. All modifications are stored online in the OneDrive for Business cloud storage. By default, SharePoint Online creates a new version when the document changes. This can be viewed by the owner in the version history. 
+1. Select **ADatum Marketing**. Add a member, select **Amy** and **Cai**.
 
-	12. Close the InPrivate Microsoft Edge window. 
+#### Task 2: Configure a public Office 365 group using PowerShell
 
-	13. In the Microsoft Edge window, Select theShared button ofProject targets in Sharing column. 
+1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
-	14. In the menu on the right SelectStop sharing and then SelectStop sharing again.
+1. Open **Windows PowerShell ISE** or **Windows PowerShell**.
 
-	15. Close the Microsoft Edge window.
+1. Create a credential. Sign in as the tenant owner.
 
- 
+   ```PowerShell
+   $Credential = Get-Credential
+   ```
 
+1. Connect to Exchange Online.
 
-Results: After completing this exercise, you should have configured Microsoft OneDrive for A. Datum.
+   ```PowerShell
+   $PSSession = New-PSSession -ConfigurationName "Microsoft.Exchange" -ConnectionUri "https://outlook.office365.com/powershell-liveid/" -Credential $Credential -Authentication "Basic" -AllowRedirection
+   Import-PSSession $PSSession -DisableNameChecking
+   ```
 
+1. Create a Microsoft 365 group.
 
-  
-‎ 
+   ```PowerShell
+   New-UnifiedGroup -DisplayName "Planning Group" -Alias "PlanningGroup" -EmailAddresses "planninggroup@adatumXXXXXX.onelearndns.com" -Owner "MOD Administrator" -Members "Francisco" -AccessType Public
+   ```
 
-## Exercise 3: Configuring Office 365 groups
+1. Add additional owners.
 
-### Task 1: Configure a private Office 365 group
+   ```PowerShell
+   Add-UnifiedGroupLinks "Planning Group" -Links "Holly Dickson" -LinkType Owner
+   ```
 
-	1. OnLON-CL1, sign in tohttp://portal.office.com asAdmin@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
+   Note the “Only Members can be Owners of a group. Please add 'holly' first as members before adding them as owners.” error message.
 
-	2. Open the Office 365 admin center through the app launcher by Selecting theAdmin icon.
+1. Add additional members.
 
-	3. SelectGroups in the left navigation pane, SelectGroups, and then SelectAdd a group.
+   ```PowerShell
+   Add-UnifiedGroupLinks "Planning Group" -Links "Sallie McIntosh", "Holly Dickson" -LinkType Member
+   ```
 
-	4. In theAdd a group window, verify thatOffice 365 group is selected in theType drop-down list.
+1. Add additional owners.
 
-	5. In theAdd a group window, configure the following settings:
+   ```PowerShell
+   Add-UnifiedGroupLinks "Planning Group" -Links "Holly Dickson" -LinkType Owner
+   ```
 
-		- Name:AdatumMarketing
+1. List groups and members.
 
-		- E-Mail:Adatummarketing@ M365xYYXXXX.hostdomain.com
+   ```PowerShell
+   Get-UnifiedGroup
+   Get-UnifiedGroup | fl *name
+   Get-UnifiedGroup "Planning Group" | Get-UnifiedGroupLinks -LinkType Member
+   Get-UnifiedGroup "Planning Group" | Get-UnifiedGroupLinks -LinkType Owner
+   ```
 
-		- Description:Adatum Marketing Group 
+#### Task 3: Explore the Office 365 group components
 
-		- UnderPrivacy, selectPrivate – Only members can see group content.
+1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
 
-		- Set the language toEnglish (United Kingdom)
+1. Open Edge. Browse to the **Office 365 home page** and sign in as **Amy**.
 
-		- Group owner:MOD Administrator
+1. From the home page, select **Outlook**.
 
-6. SelectAdd.
+1. Note the “You've joined the ADatum Marketing group” e-mail.
 
-7. SelectClose.
+1. In the left pane, select **ADatum Marketing** (scroll down).
 
-8. Select onAdatumMarketing, and in theDetails window, in theMembers section, SelectEdit.
+1. Send an e-mail to the group.
 
-9. SelectAdd members, and then SelectBeth Burke.
+1. In the left pane, select **Discover groups** (scroll down).
 
-10. SelectSave, and then SelectClose.
+1. Search for **Planning Group** and join it.
 
-### Task 2: Configure a public Office 365 group with Windows PowerShell
+   The group is public, so Amy does not need permission or approval to join the group.
 
-	1. OnLON-CL1, double-SelectWindows Azure Active Directory Module for Windows PowerShell on the desktop.
+1. In the left pane, select **Planning Group** (scroll down).
 
-	2. Type the following command, and then press Enter: 
+1. Send an e-mail to the group.
 
+1. Open **Outlook**. Sign in as **Amy**, select **No, sign in to this app only**.
 
-$cred = Get-Credential
+1. In the left pane, select **Planning Group**.
 
+1. Verify that the message from Amy is present.
 
-3. In the Windows PowerShell credential request window, sign in asAdmin@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
+1. Open **Teams**. Sign in as **Amy**, select **No, sign in to this app only**.
 
-4. Type the following command, and then press Enter:
+1. In the **Teams** list, select **Adatum Marketing**.
 
+1. Verify that there are no posts. Email messages to a group do not appear in the Teams app.
 
-$session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $cred -Authentication Basic -AllowRedirection
+1. In the **Activity feed**, note the “MOD added you to ADatum Marketing” message.
 
+1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
 
-5. Type the following command, and then press Enter:
+1. Open Edge. Browse to the **Office 365 home page** and sign in as **Sallie**.
 
+1. From the home page, select **Outlook**.
 
-Import-PSSession $Session –AllowClobber
+1. Note that there is no “You've joined the Planning Group group” e-mail (because Sallie was added using PowerShell).
 
+1. In the left pane, select **Planning Group** (scroll down).
 
-6. To create a new public Office 365 group, type the following command, and then press Enter:
+1. Send an e-mail to the group.
 
+1. Open **Outlook**. Sign in as **Sallie**, select **No, sign in to this app only**.
 
-New-UnifiedGroup –DisplayName "Planning Group" -Alias "PlanningGroup" –EmailAddresses PlanningGroup@M365xYYXXXX.hostdomain.com
+1. In the left pane, select **Planning Group**.
 
+1. Verify that the message from Amy and the mesage from Sallie are present.
 
-7. To add a user to the owners group, type the following command, and then press Enter:
+1. Open **Teams**. Sign in as **Sallie**, select **No, sign in to this app only**.
 
+1. Verify that there is no Planning Group team.
 
-Add-UnifiedGroupLinks "Planning Group" –Links Admin@M365xyyxxxxx.hostdomain.com –LinkType Owner
+1. Select **Join or create a team**, then **Create team**, then **Create from… An existing Microsoft 365 group or team**.
 
+1. No groups are listed, because Sallie is not an owner of any groups.
 
-8. To add a user to the members group, type the following command, and then press Enter:
+1. Sign out of Teams.
 
+1. Open **Teams**. Sign in as **Holly**, select **No, sign in to this app only**.
 
-Add-UnifiedGroupLinks "Planning Group" –Links Francisco@M365xyyxxxxx.hostdomain.com –LinkType Member
+1. Select **Join or create a team**, then **Create team**, then **Create from… An existing Microsoft 365 group or team**, then **Microsoft 365 group**.
 
+1. Select **Planning Group** and select **Create**.
 
-### Task 3: Explore the Office 365 group components
+1. Verify that the Planning Group team is present.
 
-	1. OnLON-CL1, openMicrosoft Edge, and then sign in tohttps://portal.office.com asAdmin@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
-
-	2. Select the app launcher in the upper-left corner.
-
-	3. SelectMail.
-
-	4. On the left pane, SelectPlanning Group, and then SelectStart a conversation. If pop-up window is blocked, SelectAlways allow.
-
-	5. In the message window, typeMOD Administrator in theTo line, type a subject and some content, and then SelectSend.
-
-	6. SelectCalendar on the toolbar, and then view the group calendar.
-
-	7. SelectNew. In theDetails pane, fill out the data for the meeting, typePlanning meeting for the subject, schedule it for tomorrow, and then SelectSave.
-
-	8. Ensure that the calendar item synchronizes with Admin’s personal calendar. 
-
-	9. Select theOffice365 apps icon, and then SelectMail.
-
-	10. In the navigation pane, selectPlanning Group.
-
-	11. SelectFiles on the toolbar, and then wait for the files store to be created. It should take few minutes.
-
-	12. SelectNew, and then SelectNewWord document. 
-
-	13. Type some text, and when you seeSaved in the title bar, close the Microsoft Edge tab.
-
-	14. In theMail window, SelectFiles, and then verify that the document has been added to the group.
-
-	15. OnLON-CL3, open Microsoft Edge, and then sign in tohttps://portal.office.com asBeth@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs. SelectEnglish (United States) for language and select your time zone and SelectSave.
-
-	16. SelectMail. Verify that theAdatumMarketing group appears in yourGroups list.
-
-	17. Under Groups, SelectBrowse orDiscover.
-
-	18. SelectPlanning Group, and then SelectJoin. Because this is a public group, you can join the group.
-
-	19. In the left navigation pane, SelectPlanning Group, and then SelectConversations. Verify that you see the message that Adminsent to the group.
-
-	20. SelectFiles, and then verify that you see the document that Admincreated.
-
-	21. Close Microsoft Edge.
-
-	22. Keep the virtual machines running for the next lab.
-
- 
-
-
-Results: After completing this exercise, you should have configured Microsoft Office 365 groups at A. Datum.
+1. Sign out of Teams.
