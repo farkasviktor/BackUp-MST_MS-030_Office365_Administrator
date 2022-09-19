@@ -2,87 +2,88 @@
 
 ### Exercise 1: Configure Yammer
 
-1. InLON-CL1, SelectDesktop, open Microsoft Edge from the taskbar, and then browse tohttps://portal.office.com.
+1. In **LON-CL1**, Select **Desktop**, open Microsoft Edge from the taskbar, and then browse to https://portal.office.com.
 
-2. Sign in asAdmin@M365xyyxxxxx.hostdomain.com (where yyxxxxx is your unique A. Datum number) with the passwordXtr3m3L@bs.
+2. Sign in as **Admin@M365xyyxxxxx.hostdomain.com** (where yyxxxxx is your unique A. Datum number) with the password **Xtr3m3L@bs**.
 
-3. Select theOffice 365 app launcher icon, and then SelectYammer.
+3. Select the **Office 365 app** launcher icon, and then Select **Yammer**.
 
-4. On theWHO DO YOU WORK WITH? page, Select theX at the top-right corner to close the page.
+4. On the **WHO DO YOU WORK WITH?** page, Select the **X** at the top-right corner to close the page.
 
-5. In Yammer, in the left pane beside MOD Administrator, Select theSettings icon.
+5. In Yammer, in the left pane beside MOD Administrator, Select the **Settings** icon.
 
-6. SelectNETWORK ADMIN.
+6. Select **NETWORK ADMIN**.
 
-7. In Yammer admin center, in the left navigation pane, SelectUsage Policy.
+7. In Yammer admin center, in the left navigation pane, Select **Usage Policy**.
 
-8. In theUsage Policy window, select theRequire users to accept policy during sign up and after any changes are made to the policy check box.
+8. In the **Usage Policy** window, select the **Require users to accept policy** during sign up and after any changes are made to the policy check box.
 
-9. In theUsage Policy window, select theDisplay policy reminder in sidebar check box.
+9. In the **Usage Policy** window, select the **Display policy reminder** in sidebar check box.
 
-10. In theCustom Policy Title text box, typeM365x Acceptable Use Policy.
+10. In the **Custom Policy Title** text box, type **M365x Acceptable Use Policy**.
 
-11. In theEnter your policy in the textbox below text box, copy and paste the following text:
+11. In the **Enter your policy in the textbox** below text box, copy and paste the following text:
 
 Welcome to Yammer! Our goal is to provide a collaborative environment to connect with colleagues and bridge various departments and geographic locations to share meaningful information.
 
-12. SelectSave.
+12. Select **Save**.
 
-13. In theM365x Acceptable Use Policy window, SelectI Accept. 
+13. In the **M365x Acceptable Use Policy** window, Select **I Accept**. 
 
-14. If needed, in Yammer, in the left pane beside MOD Administrator, Select theSettings icon, and then SelectNETWORK ADMIN.
+14. If needed, in Yammer, in the left pane beside MOD Administrator, Select the **Settings** icon, and then Select **NETWORK ADMIN**.
 
-15. In the left menu of the Yammer console, SelectConfiguration.
+15. In the left menu of the Yammer console, Select **Configuration**.
 
-16. In theEmail Settings section, SelectA weekly digest of your group messages.
+16. In the **Email Settings section**, Select **A weekly digest of your group messages**.
 
-17. In theEnabled Features page, remove the check mark from3rd Party Applications.
+17. In the **Enabled Features** page, remove the check mark from **3rd Party Applications**.
 
-18. SelectSave.
+18. Select **Save**.
 
-19. In the left-side menu of the Yammer console, SelectData Retention.
+19. In the left-side menu of the Yammer console, Select **Data Retention**.
 
-20. In theData Retention Policy page, read the description of available options and SelectSoft Delete and then SelectSave.
+20. In the **Data Retention Policy** page, read the description of available options and Select **Soft Delete** and then Select **Save**.
 
-21. In the left menu of the Yammer console, SelectMonitor Keywords.
+21. In the left menu of the Yammer console, Select **Monitor Keywords**.
 
-22. In theMonitor Keywords page, typeAdmin@M365xyyxxxxx.hostdomain.com in theEmail Address field.
+22. In the **Monitor Keywords** page, type **Admin@M365xyyxxxxx.hostdomain.com** in the **Email Address** field.
 
 23. In the text box below, type the following words, one in each line:gambling,erotic,warez.
 
-24. SelectSave.
+24. Select **Save**.
 
-25. In the left menu of the Yammer console, SelectSuccess.
+25. In the left menu of the Yammer console, Select **Success**.
 
-26. SelectWrite a welcome message in the middle pane.
+26. Selec **Write a welcome** message in the middle pane.
 
-27. SelectAll Company, and in the middle pane, in theWhat are you working on? text box, type:Welcome to all Adatum users!, and then SelectPost.
+27. Select **All Company**, and in the middle pane, in the **What are you working on?** text box, type: Welcome to all Adatum users!, and then Select **Post**.
 
 ### Task 2: Configure Yammer service settings, and enforce Office 365 identity
 
-1. In Yammer, in the left pane, Select theSettings icon.
+1. In Yammer, in the left pane, Select the **Settings** icon.
 
-2. SelectNETWORK ADMIN.
+2. Select **NETWORK ADMIN**.
 
-3. In Yammer admin center, in the left navigation pane in theContent and Security section, SelectSecurity Settings.
+3. In Yammer admin center, in the left navigation pane in the **Content and Security** section, Select **Security Settings**.
 
-4. Scroll down toOffice365 Identity Enforcement. 
+4. Scroll down to **Office365 Identity Enforcement**. 
 
-5. Select theEnforce Office 365 identity check box.
+5. Select the **Enforce Office 365 identity** check box.
 
-6. In the pop-up window, SelectOkay.
+6. In the pop-up window, Select **Okay**.
 
-7. SelectSave.
+7. Select **Save**.
+
 
 ### Task 3: Configure the Yammer user experience
 
-1. In Yammer, in the left pane, Select theSettings icon, and then SelectEDITSETTINGS.
+1. In Yammer, in the left pane, Select the **Setting**s icon, and then Select **EDITSETTINGS**.
 
-2. In the toolbar, SelectNotifications.
+2. In the toolbar, Select **Notifications**.
 
-3. In theSend me a digest of message activity drop-down list, Selectweekly.
+3. In the **Send me a digest of message activity** drop-down list, Select **weekly**.
 
-4. Select only the following options in theEmail me when... section:
+4. Select only the following options in the **Email me when...** section:
 
 		-I receive a message in my inbox
 
@@ -90,45 +91,48 @@ Welcome to Yammer! Our goal is to provide a collaborative environment to connect
 
 		-I post a message via email (This will send a confirmation email)
 
-5. SelectSave.
+5. Select **Save**.
 
 6. Close Microsoft Edge.
 
+
 ### Task 4: Using Yammer
 
-1. OnLON-CL3, open Microsoft Edge, and then connect tohttps://portal.office.com.
+1. On **LON-CL3**, open Microsoft Edge, and then connect to **https://portal.office.com**.
 
-2. Sign in asBeth@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
+2. Sign in as **Beth@M365xyyxxxxx.hostdomain.com** with the password **Xtr3m3L@bs**.
 
-3. On the Office 365 portal, SelectYammer.
+3. On the Office 365 portal, Select **Yammer**.
 
-4. At theWHO DO YOU WORK WITH prompt, typeChristie in the first text box, and then SelectDONE and close the window.
+4. At the **WHO DO YOU WORK WITH** prompt, type **Christie in the first** text box, and then Select **DONE** and close the window.
 
-5. SelectI Accept at theM365x Acceptable Use Policy prompt.
+5. Select **I Accept** at the **M365x Acceptable Use Policy prompt**.
 
 6. Find the post from MOD Administrator in the post list.
 
-7. SelectLike, and then SelectSHARE.
+7. Select **Like**, and then Select **SHARE**.
 
-8. In theShare This Conversation dialog box, selectPost in a Group, typeAll Company in the drop-down box, and then in the text box, typeWelcome from me too.
+8. In the **Share This Conversation** dialog box, select **Post** in a Group, type **All Company** in the drop-down box, and then in the text box, type **Welcome from me too**.
 
-9. SelectShare.
+9. Select **Share**.
 
-10. SelectAll Company and in theWhat are you working on text box, type “free gambling here”, and then SelectPost.
+10. Select **All Company** and in the **What are you working** on text box, type “free gambling here”, and then Select **Post**.
 
 11. Close Microsoft Edge.
 
-12. Open Microsoft Edge and browse tohttps://portal.office.com.
+12. Open Microsoft Edge and browse to **https://portal.office.com**.
 
-13. Sign in asAdmin@M365xyyxxxxx.hostdomain.com with the passwordXtr3m3L@bs.
+13. Sign in as **Admin@M365xyyxxxxx.hostdomain.com** with the password **Xtr3m3L@bs**.
 
-14. On the Office 365 portal, SelectMail.
+14. On the Office 365 portal, Select **Mail**.
 
 15. Verify that you received a message from Yammer with a report about a monitored keyword appearance in Beth’s post.
 
 16. Close Microsoft Edge.
 
 Results: After completing this exercise, you should have enabled Yammer Enterprise for A. Datum Corporation.
+
+
 
 ### Exercise 2: Configure OneDrive for Business
 
