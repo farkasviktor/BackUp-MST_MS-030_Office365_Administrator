@@ -2,9 +2,9 @@
 
 ### Exercise 1: Configure Yammer
 
-1. In **LON-CL1**, Select **Desktop**, open Microsoft Edge from the taskbar, and then browse to https://portal.office.com.
+1. Open Microsoft Edge from the taskbar, and then browse to https://portal.office.com.
 
-2. Sign in as **Admin@M365xyyxxxxx.hostdomain.com** (where yyxxxxx is your unique A. Datum number) with the password **Xtr3m3L@bs**.
+2. Sign in as **Admin@XXXXXX.onmicrosoft.com**.
 
 3. Select the **Office 365 app** launcher icon, and then Select **Yammer**.
 
@@ -46,7 +46,7 @@ Welcome to Yammer! Our goal is to provide a collaborative environment to connect
 
 21. In the left menu of the Yammer console, Select **Monitor Keywords**.
 
-22. In the **Monitor Keywords** page, type **Admin@M365xyyxxxxx.hostdomain.com** in the **Email Address** field.
+22. In the **Monitor Keywords** page, type **Admin@XXXXXX.onmicrosoft.com** in the **Email Address** field.
 
 23. In the text box below, type the following words, one in each line:gambling,erotic,warez.
 
@@ -98,9 +98,9 @@ Welcome to Yammer! Our goal is to provide a collaborative environment to connect
 
 ### Task 4: Using Yammer
 
-1. On **LON-CL3**, open Microsoft Edge, and then connect to **https://portal.office.com**.
+1. Open Microsoft Edge, and then connect to **https://portal.office.com**.
 
-2. Sign in as **Beth@M365xyyxxxxx.hostdomain.com** with the password **Xtr3m3L@bs**.
+2. Sign in as **Beth@XXXXXX.onmicrosoft.com**.
 
 3. On the Office 365 portal, Select **Yammer**.
 
@@ -122,7 +122,7 @@ Welcome to Yammer! Our goal is to provide a collaborative environment to connect
 
 12. Open Microsoft Edge and browse to **https://portal.office.com**.
 
-13. Sign in as **Admin@M365xyyxxxxx.hostdomain.com** with the password **Xtr3m3L@bs**.
+13. Sign in as **Admin@XXXXXX.onmicrosoft.com**.
 
 14. On the Office 365 portal, Select **Mail**.
 
@@ -138,11 +138,9 @@ Results: After completing this exercise, you should have enabled Yammer Enterpri
 
 #### Task 1: Enable OneDrive for Business synchronization (cloud-only users)
 
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
 1. Open **Word**. Sign in as **Amy**.
 
-1. Create a document and save it to **OneDrive - Contoso**.
+1. Create a document and save it to **OneDrive - XXXXXX**.
 
 1. Open Edge. Browse to the **Office 365 home page** and sign in as **Amy**.
 
@@ -152,17 +150,15 @@ Results: After completing this exercise, you should have enabled Yammer Enterpri
 
 1. Select **OneDrive**. Sign in as **Amy**.
 
-1. Once OneDrive synchronisation is complete, select **OneDrive - Contoso**. Verify that the new document is listed.
+1. Once OneDrive synchronisation is complete, select **OneDrive - XXXXXX**. Verify that the new document is listed.
 
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
+1. Other client open **Word**.
 
-1. Open **Word**.
-
-1. Select **Account**. Sign out administrator@adatumXXXXXX.onelearndns.com and sign in as **Sallie**.
+1. Select **Account**. Sign out administrator@XXXXXX.onmicrosoft.com and sign in as **Sallie**.
 
 1. Under **Connected Services**, add **Storage > OneDrive for Business**. Sign in as **Sallie**.
 
-1. Create a document and save it to **OneDrive - Contoso**.
+1. Create a document and save it to **OneDrive - XXXXXX**.
 
 1. Open Edge. Browse to the **Office 365 home page** and sign in as **Sallie**.
 
@@ -172,20 +168,16 @@ Results: After completing this exercise, you should have enabled Yammer Enterpri
 
 1. Select **OneDrive**. Sign in as **Sallie**.
 
-1. Once OneDrive synchronisation is complete, select **OneDrive - Contoso**. Verify that the new document is listed.
+1. Once OneDrive synchronisation is complete, select **OneDrive - XXXXXX**. Verify that the new document is listed.
 
 
 #### Task 2: Share files with other users
 
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
-
 1. Open **File Explorer**.
 
-1. Select **OneDrive - Contoso**.
+1. Select **OneDrive - XXXXXX**.
 
 1. Create a folder called **Tailspin Project**. Right-click **Tailspin Project**, choose **Share**. Select **Anyone with the link can edit**. Send the link to **Amy Santiago**.
-
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
 
 1. Run **Outlook**. Sign in as **Amy**.
 
@@ -197,13 +189,13 @@ Results: After completing this exercise, you should have enabled Yammer Enterpri
 
 If Seamless SSO has been set up then the AD DS users will not need to provide passwords to sign in to Office 365 resources.
 
-1. On **LON-CL3**, signed in as **ADATUM\Ada**.
+1. Signed in as **XXXXXX\Ada**.
 
 1. Open **Word**.
 
 1. Select **Account**. If required, sign in as **Ada**.
 
-1. Create a document and save it to **OneDrive - Contoso**.
+1. Create a document and save it to **OneDrive - XXXXXX**.
 
 1. Open Edge. Browse to the **Office 365 home page** and sign in as **Ada**.
 
@@ -213,13 +205,13 @@ If Seamless SSO has been set up then the AD DS users will not need to provide pa
 
 1. Select **OneDrive**. Sign in as **Ada**.
 
-1. Once OneDrive synchronisation is complete, select **OneDrive - Contoso**. Verify that the new document is listed.
+1. Once OneDrive synchronisation is complete, select **OneDrive - XXXXXX**. Verify that the new document is listed.
 
-1. On **LON-CL4**, signed in as **ADATUM\Cai**.
+1. Signed in as **XXXXXX\Cai**.
 
 1. *Repeat the above steps.*
 
-*Note*: Why is the OneDrive for Business folder called “OneDrive - Contoso”? Because the tenant name is “Contoso”.
+*Note*: Why is the OneDrive for Business folder called “OneDrive - XXXXXX”? Because the tenant name is “XXXXXX”.
 
 Microsoft 365 admin center, Settings | Org settings, Organization profile, Organization information.
 
@@ -227,8 +219,6 @@ Microsoft 365 admin center, Settings | Org settings, Organization profile, Organ
 ### Exercise 3: Configuring Microsoft 365 groups
 
 #### Task 1: Configure a private Microsoft 365 group using the portal
-
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
 1. Open Edge. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
 
@@ -239,10 +229,10 @@ Microsoft 365 admin center, Settings | Org settings, Organization profile, Organ
    | Setting | Value |
    | --- | --- |
    | Type | Microsoft 365 |
-   | Name | ADatum Marketing |
-   | Description | A. Datum Corporation Marketing team |
+   | Name | XXXXXX Marketing |
+   | Description | XXXXXX Corporation Marketing team |
    | Owners | MOD Administrator, Holly Dickson |
-   | Group email address | adatummarketing@adatumXXXXXX.onelearndns.com |
+   | Group email address | adatummarketing@XXXXXX.onmicrosoft.com |
    | Privacy | Private |
    | Create a team for this group | Selected |
 
@@ -251,8 +241,6 @@ Microsoft 365 admin center, Settings | Org settings, Organization profile, Organ
 1. Select **ADatum Marketing**. Add a member, select **Amy** and **Cai**.
 
 #### Task 2: Configure a public Office 365 group using PowerShell
-
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
 1. Open **Windows PowerShell ISE** or **Windows PowerShell**.
 
@@ -272,7 +260,7 @@ Microsoft 365 admin center, Settings | Org settings, Organization profile, Organ
 1. Create a Microsoft 365 group.
 
    ```PowerShell
-   New-UnifiedGroup -DisplayName "Planning Group" -Alias "PlanningGroup" -EmailAddresses "planninggroup@adatumXXXXXX.onelearndns.com" -Owner "MOD Administrator" -Members "Francisco" -AccessType Public
+   New-UnifiedGroup -DisplayName "Planning Group" -Alias "PlanningGroup" -EmailAddresses "planninggroup@XXXXXX.onmicrosoft.com" -Owner "MOD Administrator" -Members "Francisco" -AccessType Public
    ```
 
 1. Add additional owners.
@@ -306,15 +294,13 @@ Microsoft 365 admin center, Settings | Org settings, Organization profile, Organ
 
 #### Task 3: Explore the Office 365 group components
 
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **Office 365 home page** and sign in as **Amy**.
 
 1. From the home page, select **Outlook**.
 
-1. Note the “You've joined the ADatum Marketing group” e-mail.
+1. Note the “You've joined the XXXXXX Marketing group” e-mail.
 
-1. In the left pane, select **ADatum Marketing** (scroll down).
+1. In the left pane, select **XXXXXX Marketing** (scroll down).
 
 1. Send an e-mail to the group.
 
@@ -336,13 +322,11 @@ Microsoft 365 admin center, Settings | Org settings, Organization profile, Organ
 
 1. Open **Teams**. Sign in as **Amy**, select **No, sign in to this app only**.
 
-1. In the **Teams** list, select **Adatum Marketing**.
+1. In the **Teams** list, select **XXXXXX Marketing**.
 
 1. Verify that there are no posts. Email messages to a group do not appear in the Teams app.
 
-1. In the **Activity feed**, note the “MOD added you to ADatum Marketing” message.
-
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
+1. In the **Activity feed**, note the “MOD added you to XXXXXX Marketing” message.
 
 1. Open Edge. Browse to the **Office 365 home page** and sign in as **Sallie**.
 
