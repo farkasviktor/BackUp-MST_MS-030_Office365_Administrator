@@ -4,9 +4,7 @@
 
 #### Task 1: Send an email to a non-existent domain
 
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
-1. Open **Outlook**, signed in as **Amy**.
+1.Open **Outlook**, signed in as **Amy**.
 
 1. Send an email to **user@alt.none** with a subject of **Test email to non-existent domain**.
 
@@ -40,8 +38,6 @@
 
 #### Task 3: Analyse Mail Flow using the portal
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **Office 365 Security & Compliance Center** and sign in as the tenant owner.
 
    At the time of writing, Message Trace is also available in the Modern Exchange admin center, but not in the Microsoft 365 Compliance center or the Microsoft 365 Security center.
@@ -63,8 +59,6 @@
 1. Open the downloaded csv file. Review the (limited) information.
 
 #### Task 4: Analyse Mail Flow using PowerShell.
-
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
 1. Open **Windows PowerShell ISE** or **Windows PowerShell**.
 
@@ -102,8 +96,6 @@
 ### Exercise 2: Monitor service health
 
 #### Task 1: View Office 365 service health
-
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
 1. Open Edge. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
 
