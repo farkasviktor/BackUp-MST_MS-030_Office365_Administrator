@@ -2,8 +2,6 @@
 
 ### Exercise 1: Create users
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
 
 1. In the Navigation menu, select **Users > Active users**.
@@ -15,7 +13,7 @@
    | First name | Amy |
    | Last name | Santiago |
    | Display Name | Amy Santiago |
-   | Username | amy@adatumXXXXXX.onelearndns.com |
+   | Username | amy@XXXXXX.onmicrosoft.com |
    | Password | Pa55w.rd1234 |
    | Require the user to change their password when they first sign in | No |
    | Location | Switzerland |
@@ -30,7 +28,7 @@
    | First name | Christie |
    | Last name | Thomas |
    | Display Name | Christie Thomas |
-   | Username | christie@adatumXXXXXX.onelearndns.com |
+   | Username | christie@XXXXXX.onmicrosoft.com |
    | Password | Pa55w.rd1234 |
    | Require the user to change their password when they first sign in | No |
    | Location | Switzerland |
@@ -45,7 +43,7 @@
    | First name | Francisco |
    | Last name | Chaves |
    | Display Name | Francisco Chaves |
-   | Username | francisco@adatumXXXXXX.onelearndns.com |
+   | Username | francisco@XXXXXX.onmicrosoft.com |
    | Password | Pa55w.rd1234 |
    | Require the user to change their password when they first sign in | No |
    | Location | Switzerland |
@@ -60,7 +58,7 @@
    | First name | Lindsey |
    | Last name | Gates |
    | Display Name | Lindsey Gates |
-   | Username | lindsey@adatumXXXXXX.onelearndns.com |
+   | Username | lindsey@XXXXXX.onmicrosoft.com |
    | Password | Pa55w.rd1234 |
    | Require the user to change their password when they first sign in | No |
    | Location | Switzerland |
@@ -75,7 +73,7 @@
    | First name | Sallie |
    | Last name | McIntosh |
    | Display Name | Sallie McIntosh |
-   | Username | sallie@adatumXXXXXX.onelearndns.com |
+   | Username | sallie@XXXXXX.onmicrosoft.com |
    | Password | Pa55w.rd1234 |
    | Require the user to change their password when they first sign in | No |
    | Location | Switzerland |
@@ -90,7 +88,7 @@
    | First name | Holly |
    | Last name | Dickson |
    | Display Name | Holly Dickson |
-   | Username | holly@adatumXXXXXX.onelearndns.com |
+   | Username | holly@XXXXXX.onmicrosoft.com |
    | Password | Pa55w.rd1234 |
    | Require the user to change their password when they first sign in | No |
    | Location | Switzerland |
@@ -192,8 +190,6 @@ TODO: https://docs.microsoft.com/en-us/azure/active-directory/authentication/tut
 
 ### Exercise 7: Create groups
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
 
 1. In the Navigation menu, select **Groups > Active groups**.
@@ -248,8 +244,6 @@ ____________________________________________________________
 
 ### Exercise 1: Create users
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Using **Run as Administrator**, open **Windows PowerShell ISE** or **Windows PowerShell**.
 
 1. Install the latest version of the MSOnline module.
@@ -281,11 +275,11 @@ ____________________________________________________________
 1. Create the users.
 
    ```PowerShell
-   New-MsolUser -UserPrincipalName "catherine@adatumXXXXXX.onelearndns.com" -DisplayName "Catherine Richard" -FirstName "Catherine" -LastName "Richard" -Password "Pa55w.rd1234" -ForceChangePassword $false -UsageLocation "CH"
+   New-MsolUser -UserPrincipalName "catherine@XXXXXX.onmicrosoft.com" -DisplayName "Catherine Richard" -FirstName "Catherine" -LastName "Richard" -Password "Pa55w.rd1234" -ForceChangePassword $false -UsageLocation "CH"
    ```
 
    ```PowerShell
-   New-MsolUser -UserPrincipalName "tameka@adatumXXXXXX.onelearndns.com" -DisplayName "Tameka Reed" -FirstName "Tameka" -LastName "Reed" -Password "Pa55w.rd1234" -ForceChangePassword $false -UsageLocation "CH"
+   New-MsolUser -UserPrincipalName "tameka@XXXXXX.onmicrosoft.com" -DisplayName "Tameka Reed" -FirstName "Tameka" -LastName "Reed" -Password "Pa55w.rd1234" -ForceChangePassword $false -UsageLocation "CH"
    ```
 
 ### Exercise 2: Licence users
@@ -302,14 +296,14 @@ ____________________________________________________________
    Get-MsolAccountSku
    ```
 
-1. Assign licenses. Edit the correct license name (LODSXXXXXXX:ENTERPRISEPREMIUM) before running the script.
+1. Assign licenses. Edit the correct license name (XXXXXXX:ENTERPRISEPREMIUM) before running the script.
 
    ```PowerShell
-   Set-MsolUserLicense -UserPrincipalName "catherine@adatumXXXXXX.onelearndns.com" -AddLicenses "LODSXXXXXXX:ENTERPRISEPREMIUM", "LODSXXXXXXX:EMSPREMIUM"
+   Set-MsolUserLicense -UserPrincipalName "catherine@XXXXXX.onmicrosoft.com" -AddLicenses "XXXXXXX:ENTERPRISEPREMIUM", "XXXXXXX:EMSPREMIUM"
    ```
 
    ```PowerShell
-   Set-MsolUserLicense -UserPrincipalName "tameka@adatumXXXXXX.onelearndns.com" -AddLicenses "LODSXXXXXXX:ENTERPRISEPREMIUM", "LODSXXXXXXX:EMSPREMIUM"
+   Set-MsolUserLicense -UserPrincipalName "tameka@XXXXXX.onmicrosoft.com" -AddLicenses "XXXXXXX:ENTERPRISEPREMIUM", "XXXXXXX:EMSPREMIUM"
    ```
 
 ### Exercise 3: Block a user
@@ -317,7 +311,7 @@ ____________________________________________________________
 1. Block Catherine’s sign-in.
 
    ```PowerShell
-   Set-MsolUser -UserPrincipalName "catherine@adatumXXXXXX.onelearndns.com" -BlockCredential $true
+   Set-MsolUser -UserPrincipalName "catherine@XXXXXX.onmicrosoft.com" -BlockCredential $true
    ```
 
 ### Exercise 4: Delete and undelete a user
@@ -325,7 +319,7 @@ ____________________________________________________________
 1. Delete Catherine’s user account.
 
    ```PowerShell
-   Remove-MsolUser -UserPrincipalName "catherine@adatumXXXXXX.onelearndns.com"
+   Remove-MsolUser -UserPrincipalName "catherine@XXXXXX.onmicrosoft.com"
    ```
 
 1. List all deleted users. Note that Catherine’s account is still licensed.
@@ -337,7 +331,7 @@ ____________________________________________________________
 1. Undelete Catherine’s user account.
 
    ```PowerShell
-   Restore-MsolUser -UserPrincipalName "catherine@adatumXXXXXX.onelearndns.com"
+   Restore-MsolUser -UserPrincipalName "catherine@XXXXXX.onmicrosoft.com"
    ```
 
 1. List users.
@@ -354,9 +348,9 @@ ____________________________________________________________
 
 1. Right-click **O365users.csv**, choose **Edit**.
 
-1. Replace all yourdomain.hostdomain.com with adatumXXXXXX.onelearndns.com.
+1. Replace all yourdomain.hostdomain.com with XXXXXX.onmicrosoft.com.
 
-1. Replace all adatumyyxxxx:ENTERPRISEPACK with LODSXXXXXXX:ENTERPRISEPREMIUM.
+1. Replace all adatumyyxxxx:ENTERPRISEPACK with XXXXXXX:ENTERPRISEPREMIUM.
 
 1. Save the file and close Notepad.
 
@@ -401,7 +395,7 @@ ____________________________________________________________
 1. Set password expiry.
 
    ```PowerShell
-   Set-MsolPasswordPolicy -DomainName "adatumXXXXXX.onelearndns.com" -ValidityPeriod 90 -NotificationDays 14
+   Set-MsolPasswordPolicy -DomainName "XXXXXX.onmicrosoft.com" -ValidityPeriod 90 -NotificationDays 14
    ```
 
    If you wanted to do this for all of your domains, you could use the following.
@@ -413,7 +407,7 @@ ____________________________________________________________
 1. Reset a user’s password.
 
    ```PowerShell
-   Set-MsolUserPassword -UserPrincipalName "tameka@adatumXXXXXX.onelearndns.com" -NewPassword "Pa55w.rd9876"
+   Set-MsolUserPassword -UserPrincipalName "tameka@XXXXXX.onmicrosoft.com" -NewPassword "Pa55w.rd9876"
    ```
 
 1. Disable password expiry for all users (for ease of use during the labs).
@@ -452,11 +446,11 @@ ____________________________________________________________
 1. Assign roles.
 
    ```PowerShell
-   Add-MsolRoleMember -RoleName "Service Support Administrator" -RoleMemberEmailAddress "sallie@adatumXXXXXX.onelearndns.com"
+   Add-MsolRoleMember -RoleName "Service Support Administrator" -RoleMemberEmailAddress "sallie@XXXXXX.onmicrosoft.com"
    ```
 
    ```PowerShell
-   Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberEmailAddress "amy@adatumXXXXXX.onelearndns.com"
+   Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberEmailAddress "amy@XXXXXX.onmicrosoft.com"
    ```
 
 1. Verify role membership.
@@ -505,7 +499,7 @@ ____________________________________________________________
    | First name | Chris |
    | Last name | Breland |
    | Display Name | Chris Breland |
-   | Username | chris@adatumXXXXXX.onelearndns.com |
+   | Username | chris@XXXXXX.onmicrosoft.com |
    | Password | Pa55w.rd1234 |
    | Require the user to change their password when they first sign in | No |
    | Location | Switzerland |
