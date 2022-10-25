@@ -4,8 +4,6 @@
 
 #### Task 1: Configure settings
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **SharePoint admin center** and sign in as the tenant owner.
 
 1. Select **Settings** then **Site storage limits**
@@ -65,7 +63,7 @@
 
 #### Task 2: Create a site collection using Windows PowerShell
 
-   In the script below, replace *LODSAXXXXXX* with your tenant details (for example, LODSA1234567).
+   In the script below, replace *XXXXXX* with your tenant details.
 
 1. Open Edge. Browse to **https://www.microsoft.com/en-us/download/details.aspx?id=35588** (SharePoint Online Management Shell). Download and install the x64 version of the tool.
 
@@ -80,7 +78,7 @@
 1. Connect to SharePoint Online.
 
    ```PowerShell
-   Connect-SPOService -Url https://LODSAXXXXXX-admin.sharepoint.com -Credential $Credential
+   Connect-SPOService -Url https://XXXXXX-admin.sharepoint.com -Credential $Credential
    ```
 
 1. Verify connectivity.
@@ -93,50 +91,38 @@
 1. Create a new site.
 
    ```PowerShell
-   New-SPOSite -Url https://LODSAXXXXXX.sharepoint.com/sites/AcctsProj -Owner admin@LODSAXXXXXX.onmicrosoft.com -StorageQuota 500 -NoWait -Template PROJECTSITE#0 -Title "Accounts Project"
+   New-SPOSite -Url https://XXXXXX.sharepoint.com/sites/AcctsProj -Owner admin@XXXXXX.onmicrosoft.com -StorageQuota 500 -NoWait -Template PROJECTSITE#0 -Title "Accounts Project"
    ```
 
 #### Task 3: Configure permissions on the site collections
-
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
 1. In the **SharePoint admin center**, select **Sites > Active Sites**, then select the **Site name** column of **Marketing**.
 
 1. Under **Permissions**, **Additional Admins**, select **Manage**. Add **Tameka**.
 
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **Office 365 home page** and sign in as **Tameka**.
 
 1. Select SharePoint. Note that Tameka has no sites listed.
 
-1. Open a new browser tab. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**.
+1. Open a new browser tab. Browse to **https://XXXXXX.sharepoint.com/sites/marketing**.
 
 1. Select **Not following** and wait for the link to change to “Following”.
 
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
-
-1. Open a new browser tab. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**. Sign in as **Catherine**.
+1. Open a new browser tab. Browse to **https://XXXXXX.sharepoint.com/sites/marketing**. Sign in as **Catherine**.
 
    This will fail. Catherine’s account is blocked (from a previous lab).
 
 1. Close Edge.
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
 
 1. Unblock Catherine’s account.
 
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
-
-1. Open a new browser tab. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**. Sign in as **Catherine**.
+1. Open a new browser tab. Browse to **https://XXXXXX.sharepoint.com/sites/marketing**. Sign in as **Catherine**.
 
 1. In the **You need permission to access this site** box, enter some text and request access.
 
 1. Close Edge.
-
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
 
 1. Switch to the **SharePoint** browser tab and refresh the page. Marketing will appear in the **Following* list.
 
@@ -154,15 +140,13 @@
 
 1. Invite Francisco.
 
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
-
-1. Open Edge. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**. Sign in as **Catherine**.
+1. Open Edge. Browse to **https://XXXXXX.sharepoint.com/sites/marketing**. Sign in as **Catherine**.
 
    Catherine has access to the site.
 
 1. Sign out Catherine and close Edge.
 
-1. Open Edge. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/marketing**. Sign in as **Francisco**.
+1. Open Edge. Browse to **https://XXXXXX.sharepoint.com/sites/marketing**. Sign in as **Francisco**.
 
    Francisco has access to the site.
 
@@ -172,15 +156,13 @@
 
 #### Task 1: Configure a site collection for external user sharing
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **SharePoint admin center** and sign in as the tenant owner.
 
 1. In the Navigation menu, select **Sites > Active sites**.
 
 1. Select **Policies**, **External Sharing**. Set **Site content can be shared with:** **Anyone**.
 
-1. Open a new browser tab. Browse to **https://LODSAXXXXXX.sharepoint.com/sites/AcctsProj**.
+1. Open a new browser tab. Browse to **https://XXXXXX.sharepoint.com/sites/AcctsProj**.
 
 1. Select **Share** (top-right).
 
@@ -195,8 +177,6 @@
 1. Send an e-mail to **alias@outlook.com** with a subject of “Document link” and the link pasted into the message body.
 
 #### Task 2: Verify external user sharing
-
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
 
 1. Close all Edge windows.
 
