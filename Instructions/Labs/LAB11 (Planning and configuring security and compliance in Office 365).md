@@ -1,4 +1,4 @@
-## Lab 11: Planning and configuring security and compliance in ‎Office 365
+## Lab 11: Planning and configuring security and compliance in ‎Office 365 
 
 ### Exercise 1: Manage Azure Information Protection (optional)
 
