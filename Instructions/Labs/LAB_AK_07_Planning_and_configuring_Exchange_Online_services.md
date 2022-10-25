@@ -4,8 +4,6 @@
 
 #### Task 1: Create a custom send and receive connector to enforce TLS
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **Exchange admin center** and sign in as the tenant owner.
 
 1. In the navigation menu, select **mail flow** then select **connectors**.
@@ -61,8 +59,6 @@
 
 #### Task 3: Verify transport rules
 
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
 1. Open **Outlook**, signed in as **Amy**.
 
 1. Send an e-mail to **alias@outlook.com** with a subject of “External recipient”.
@@ -73,9 +69,7 @@
 
 1. Read the email from Amy and verify the disclaimer has been added.
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
-1. Open **Outlook 2016**, signed in as **MOD Administrator**.
+1. 1. Open **Outlook 2016**, signed in as **MOD Administrator**.
 
 1. Approve Amy’s e-mail message to Holly.
 
@@ -104,8 +98,6 @@ ____________________________________________________________
 
 #### Task 1: Configure the malware filter
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **Exchange admin center** and sign in as the tenant owner.
 
 1. In the navigation menu, select **protection** then select **malware filter**.
@@ -117,8 +109,8 @@ ____________________________________________________________
    | Do you want to notify recipients if their messages are quarantined? | Yes and use custom notification text |
    | Custom notification text | Malware has been detected. Please wait to be contacted by the IT team. |
    | Sender notifications | Both internal senders and external senders |
-   | Notify administrator about undelivered messages from internal senders | Admin@adatumXXXXXX.onelearndns.com |
-   | Notify administrator about undelivered messages from external senders | Admin@adatumXXXXXX.onelearndns.com |
+   | Notify administrator about undelivered messages from internal senders | Admin@XXXXXX.onmicrosoft.com |
+   | Notify administrator about undelivered messages from external senders | Admin@XXXXXX.onmicrosoft.com |
 
 #### Task 2: Configure the connection filter
 
@@ -156,7 +148,7 @@ ____________________________________________________________
 
 1. Open a web browser and sign in to **alias@outlook.com**.
 
-1. Create a new message to **lindsey@adatumXXXXXX.onelearndns.com**.
+1. Create a new message to **lindsey@XXXXXX.onmicrosoft.com**.
 
 1. Copy and paste the following into the body of the message and then send.
 
@@ -166,7 +158,7 @@ ____________________________________________________________
 
    *Link*:  https://spamassassin.apache.org/gtube/
 
-1. Repeat the above, to **francisco@adatumXXXXXX.onelearndns.com**.
+1. Repeat the above, to **francisco@XXXXXX.onmicrosoft.com**.
 
 1. Switch to the Edge tab running **Office 365 Security & Compliance**.
 
