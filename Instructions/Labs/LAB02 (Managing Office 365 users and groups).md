@@ -1,4 +1,4 @@
-## Lab 2A: Managing Office 365 users and groups using the portal
+## Lab 2A: Managing Office 365 users and groups using the portal 
 
 ### Exercise 1: Create users
 
