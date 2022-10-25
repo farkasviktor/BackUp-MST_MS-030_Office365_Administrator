@@ -1,4 +1,4 @@
-## Lab 3: Configuring client connectivity to Microsoft Office 365
+## Lab 3: Configuring client connectivity to Microsoft Office 365 
 
 ### Exercise 1: Use the Microsoft Remote Connectivity Analyzer
 
