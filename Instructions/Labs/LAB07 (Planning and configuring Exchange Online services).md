@@ -1,4 +1,4 @@
-## Lab 7A: Configuring message transport in Exchange Online
+## Lab 7A: Configuring message transport in Exchange Online 
 
 ### Exercise 1: Configure message-transport settings
 
