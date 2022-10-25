@@ -4,8 +4,6 @@
 
 #### Task 1: Use the Exchange admin center
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Open Edge. Browse to the **Exchange admin center** and sign in as the tenant owner.
 
 1. In the Navigation menu, select **recipients** then select **mailboxes**.
@@ -84,17 +82,13 @@
 
 #### Task 5: Test resource mailboxes
 
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
-1. Open **Outlook**, signed in as **Amy**.
+1. 1. Open **Outlook**, signed in as **Amy**.
 
 1. Create a meeting. Invite Francisco, Demonstration Laptop and Conference Room.
 
 1. Wait for the “accepted” messages from Demonstration Laptop and Conference Room.
 
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
-
-1. Open **Outlook**, signed in as **Sallie**.
+1. 1. Open **Outlook**, signed in as **Sallie**.
 
 1. Create a meeting at the same time as Amy’s meeting. Select the Scheduling Assistant tab.
 
@@ -107,8 +101,6 @@
 ### Exercise 2: Configure role-based access control
 
 #### Task 1: Assign users to built-in role groups
-
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
 1. Switch to Edge connected to the **Exchange admin center**.
 
