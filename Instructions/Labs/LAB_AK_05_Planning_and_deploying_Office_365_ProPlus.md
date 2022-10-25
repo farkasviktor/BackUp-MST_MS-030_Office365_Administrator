@@ -1,10 +1,8 @@
-## Lab 5: Planning and deploying Office 365 ProPlus
+## Lab 5: Planning and deploying Office 365 ProPlus (*Optional*)
 
 ### Exercise 1: Prepare an Office 365 ProPlus managed installation
 
 #### Task 1: Download the Office 365 deployment tool
-
-1. On **LON-DC1**, signed in as **ADATUM\Administrator**.
 
 1. Open **Server Manager**. Select **File and Storage Services**, **Shares**.
 
@@ -42,7 +40,7 @@
      </Add>
      <Property Name="PinIconsToTaskbar" Value="TRUE" />
      <Updates Enabled="TRUE" Channel="Monthly" />
-     <Logging Level="Standard" Path="\\LON-DC1\OfficeProPlus" />
+     <Logging Level="Standard" Path="\\<ShareName>\OfficeProPlus" />
    </Configuration>
    ```
 
@@ -54,7 +52,7 @@
 
    ```PowerShell
    cd C:\Shares\OfficeProPlus
-   .\setup.exe /download \\LON-DC1\OfficeProPlus\AdatumConfiguration.xml
+   .\setup.exe /download \\<ShareName>\OfficeProPlus\AdatumConfiguration.xml
    ```
 
    This download takes several minutes to complete. Continue with the next task and leave the download in the background.
@@ -62,8 +60,6 @@
 ### Exercise 2: Manage user-driven Office 365 ProPlus installations
 
 #### Task 1: Manage user rights to install Office 365 ProPlus
-
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
 1. Open Edge. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
 
@@ -73,9 +69,7 @@
 
 #### Task 2: Install Office 365 ProPlus from the Office 365 portal
 
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
-1. Open Edge. Browse to the **Office 365 home page** and sign in as **Abbi**.
+1. Open Edge. Browse (guest mode) to the **Office 365 home page** and sign in as **Abbi**.
 
    This is an AD DS account so the password is **Pa55w.rd**.
 
@@ -101,37 +95,31 @@
 
 #### Task 1: Verify ODT download
 
-1. On **LON-DC1**, signed in as **ADATUM\Administrator**.
+1. 1. Verify that the ODT download has completed without errors.
 
-1. Verify that the ODT download has completed without errors.
-
-1. Run File Explorer. Browse to **C:\Shares\OfficeProPlus**.
+1. Run File Explorer. Browse to **C:\<ShareName>\OfficeProPlus**.
 
    Note the Office folder containing the installation source files.
 
-#### Task 2: Install Office 365 ProPlus using the ODT
-
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
+#### Task 2: Install Office 365 ProPlus using the ODT (*Optional*)
 
 1. Using **Run as Administrator**, open **Windows PowerShell ISE** or **Windows PowerShell**.
 
 1. Install the app.
 
    ```PowerShell
-   \\LON-DC1\OfficeProPlus\setup.exe /configure \\LON-DC1\OfficeProPlus\AdatumConfiguration.xml
+   \\<ShareName>\OfficeProPlus\setup.exe /configure \\<Sharename>\OfficeProPlus\AdatumConfiguration.xml
    ```
 
 1. Wait until the installation has finished on both **LON-CL3** and **LON-CL4**.
 
 #### Task 3: Verify installation
 
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
 1. Open **Word**. Sign in as **Amy**.
 
 1. At the **Stay signed in to all your apps** screen, select **No, sign in to this app only**.
 
-1. Create a document. Save it to **OneDrive - Contoso**.
+1. Create a document. Save it to **OneDrive - XXXXXX**.
 
 1. Close Word.
 
@@ -141,15 +129,11 @@
 
 1. Create a meeting and invite Sallie.
 
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
-
 1. Open **Word**. Sign in as **Sallie**.
 
 1. At the **Stay signed in to all your apps** screen, select **No, sign in to this app only**.
 
 1. Create a document. Save it to **Documents**.
-
-   Note that OneDrive for Business is not set up for Sallie, because the Office 365 ProPlus installation was done as ADATUM\Administrator.
 
 1. Close Word.
 
