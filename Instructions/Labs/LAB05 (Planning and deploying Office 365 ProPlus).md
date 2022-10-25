@@ -1,4 +1,4 @@
-## Lab 5: Planning and deploying Office 365 ProPlus (*Optional*)
+## Lab 5: Planning and deploying Office 365 ProPlus (*Optional*) 
 
 ### Exercise 1: Prepare an Office 365 ProPlus managed installation
 
