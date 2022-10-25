@@ -1,35 +1,19 @@
 ## Lab 11: Planning and configuring security and compliance in ‎Office 365
 
-### Exercise 1: Manage Azure Information Protection
+### Exercise 1: Manage Azure Information Protection (optional)
 
 #### Task 1: Install the Azure Information Protection client
 
-1. On **LON-DC1**, signed in as **ADATUM\Administrator**.
-
 1. Run Internet Explorer. Browse to **https://www.microsoft.com/en-us/download/details.aspx?id=53018** (Azure Information Protection unified labelling client).
 
-1. Download **AzInfoProtection_UL.exe** and save it to **C:\Shares\OfficeProPlus**.
+1. Download **AzInfoProtection_UL.exe** and save it to **C:\<ShareName>\OfficeProPlus**.
 
    Note that there is a msi download available for centralised software deployment.
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
 1. Run\
-**\\LON-DC1\OfficeProPlus\AzInfoProtection_UL.exe**
-
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
-1. Run\
-**\\LON-DC1\OfficeProPlus\AzInfoProtection_UL.exe**
-
-1. On **LON-CL4**, signed in as **ADATUM\Administrator**.
-
-1. Run\
-**\\LON-DC1\OfficeProPlus\AzInfoProtection_UL.exe**
+**\\<ShareName>\OfficeProPlus\AzInfoProtection_UL.exe**
 
 #### Task 2: Configure Azure Information Protection
-
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
 
 1. Open Edge. Browse to the **Microsoft 365 Compliance** admin center and sign in as the tenant owner.
 
@@ -76,9 +60,7 @@
 
 #### Task 3: Create protected content (cloud-only user)
 
-1. On **LON-CL3**, signed in as **ADATUM\Administrator**.
-
-1. Open Edge. Browse to **https://lodsXXXXXXX.sharepoint.com/sites/adatummarketing**. Sign in as **Amy**.
+1. Open Edge. Browse to **https://XXXXXXX.sharepoint.com/sites/adatummarketing**. Sign in as **Amy**.
 
 1. Follow the site.
 
@@ -98,14 +80,8 @@ Alex Wilbur’s IRD number is 21-234-567.
 
 1. Save the document to the **Documents** library of the **ADatum Marketing** SharePoint site.
 
-   Note: If the Sites location in the Save As dialog shows “There are no sites to show right now” then Office has not yet cached the SharePoint Sites. In this case, select Browse and enter https://lodsXXXXXXX.sharepoint.com/sites/adatummarketing in the address bar.
+   Note: If the Sites location in the Save As dialog shows “There are no sites to show right now” then Office has not yet cached the SharePoint Sites. In this case, select Browse and enter https://XXXXXXX.sharepoint.com/sites/adatummarketing in the address bar.
 
 1. Word should automatically apply the PII policy.
 
   *It should, but often doesn't. I can't find anything on the web for why it might not work.* **TODO**
-
-#### Task 4: Create protected content (AD DS user)
-
-1. On **LON-CL4**, signed in as **ADATUM\Cai**.
-
-*Repeat the above steps.*
