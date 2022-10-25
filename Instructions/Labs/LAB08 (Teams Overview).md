@@ -1,6 +1,4 @@
-
-
-## Module 8 lab: Teams Overview
+## Module 8 lab: Teams Overview 
 
 In this exercise you will be learning how to manage and configure teams through the teams Administrative portal
 
