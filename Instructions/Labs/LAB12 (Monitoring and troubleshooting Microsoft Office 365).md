@@ -1,4 +1,4 @@
-## Lab 12: Monitoring and troubleshooting Microsoft Office 365
+## Lab 12: Monitoring and troubleshooting Microsoft Office 365 
 
 ### Exercise 1: Monitor Office 365
 
