@@ -4,9 +4,7 @@
 
 During this lab, if asked to save the password or to stay signed in, select **Yes**.
 
-1. On **LON-CL1**, signed in as **ADATUM\Administrator**.
-
-1. Open Edge. Browse to the **Office 365 home page** (**https://portal.office.com**). Sign in using the tenant owner (**admin@LODSXXXXXXX.onmicrosoft.com**).
+1. Open Edge. Browse to the **Office 365 home page** (**https://portal.office.com**). Sign in using the tenant owner (**admin@XXXXXXX.onmicrosoft.com**).
 
 1. Select the Admin link. This opens the **Microsoft 365 admin center**.
 
@@ -34,7 +32,7 @@ During this lab, if asked to save the password or to stay signed in, select **Ye
 
    You can open this site directly by browsing to **https://aad.portal.azure.com**.
 
-1. In the navigation menu, select **Azure Active Directory**. In the **Contoso | Overview blade** scroll to the the **Manage** section and select **Users**.
+1. In the navigation menu, select **Azure Active Directory**. In the **XXXXXX | Overview blade** scroll to the the **Manage** section and select **Users**.
 
 1. How many accounts are listed? The number should match the number of active users.
 
@@ -53,66 +51,6 @@ During this lab, if asked to save the password or to stay signed in, select **Ye
 1. Open a new tab and browse to **https://compliance.microsoft.com**. This opens the new **Microsoft 365 Security** portal.
 
 1. Select the **Microsoft 365 admin center** browser tab.
-
-### Exercise 2: Add a DNS domain
-
-1. On **LON-DC1**, signed in as **ADATUM\Administrator**.
-
-1. Open Internet Explorer. Browse to the **Microsoft 365 admin center** and sign in as the tenant owner.
-
-1. In the Navigation menu, select **Settings > Domains**.
-
-1. Select **Add domain**.
-
-1. Type **adatumXXXXXX.onelearndns.com** then select **Use this domain**.
-
-1. Select **Add a TXT record** then **Continue**.
-
-1. Record the **TXT value**.
-
-1. Open **DNS Manager**.
-
-1. Create a new **Forward Lookup Zone**.
-
-   | Setting | Value |
-   | --- | --- |
-   | Zone type | Primary |
-   | Store in Active Directory | Selected |
-   | Replicated | To all DNS servers running on domain controllers in this forest |
-   | Zone name | adatumXXXXXX.onelearndns.com |
-   | Dynamic update | Allow only secure dynamic updates |
-
-1. Right-click **adatumXXXXXX.onelearndns.com**, choose **New host (A or AAAA)…**.
-
-   | Setting | Value |
-   | --- | --- |
-   | Name | NSadatumXXXXXX | 
-   | IP Address | (Your public IP address) |
-
-   *Hint*: Before clicking **Add Host**, copy the fully qualified domain name to the clipboard.
-   
-1. Right-click the **Start of Authority (SOA)** record, choose **Properties**.
-
-1. Select the **Start of Authority (SOA)** tab. 
-
-1. Type (or paste) **NSadatumXXXXXX.adatumXXXXXX.onelearndns.com** in the Primary Server textbox.
-
-1. Select the **Name Servers** tab then select **Edit**.
-
-1. Type (or paste) **NSadatumXXXXXX.adatumXXXXXX.onelearndns.com** in the server fully qualified domain name textbox and select **Resolve**. Verify that the IP address is correct (your public IP address) and select **OK** twice.
-
-1. Right-click **adatumXXXXXX.onelearndns.com**, choose **Other new records…**, **Text (TXT)**.
-
-   | Setting | Value |
-   | --- | --- |
-   | Record name | (Leave blank) |
-   | Text | (The TXT value from above) |
-
-1. Switch to the **Microsoft 365 admin center** browser.
-
-1. On the **Verify you own this domain** page, select **Verify**.
-
-1. On the **How do you want to connect your domain?** page, select **Close**. *We will add the DNS records later*.
 
 ### Admin Center Reference
 
