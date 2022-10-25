@@ -1,4 +1,4 @@
-## Lab 6: Managing Exchange Online recipients and permissions
+## Lab 6: Managing Exchange Online recipients and permissions 
 
 ### Exercise 1: Configure Exchange Online recipients
 
