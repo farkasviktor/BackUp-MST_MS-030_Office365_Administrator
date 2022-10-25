@@ -1,4 +1,4 @@
-## Lab 10: Planning and configuring an Office 365 collaboration solution
+## Lab 10: Planning and configuring an Office 365 collaboration solution 
 
 ### Exercise 1: Configure Yammer
 
