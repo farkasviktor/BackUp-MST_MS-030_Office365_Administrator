@@ -1,4 +1,4 @@
-# MS-030: Office 365 Administrator
+# Office 365 Administrator (old: MS-030)
 
 - **[Download Latest Student Handbook and AllFiles Content](../../releases/latest)**
 - **Are you a MCT?** - Have a look at our [GitHub User Guide for MCTs](https://microsoftlearning.github.io/MCT-User-Guide/)
