@@ -1,4 +1,4 @@
-## Lab 4: Planning and configuring directory synchronization (*Optional*)
+## Lab 4: Planning and configuring directory synchronization (*Optional*) 
 
 ### Exercise 1: Resolve issues
 
