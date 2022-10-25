@@ -136,7 +136,7 @@ This task guides you through the many options for creating a Resource Account.
 
 	- Display name: Calling que 1
 
-	- Username : Cq1@ Adatumyyxxxxxx.onmicrosoft.com
+	- Username : Cq1@ XXXXXX.onmicrosoft.com
 
 	- Resource account type: Call queue
 
@@ -154,7 +154,7 @@ This task guides you through the many options for creating a call queue.
 
 	3. Select the Add accounts 
 
-	4. Select call [Cq1@Adatumyyxxxxxx.onmicrosoft.com](mailto:Cq1@adatumyyxxxxxx.onmicrosoft.com)
+	4. Select call [Cq1@Adatumyyxxxxxx.onmicrosoft.com](mailto:Cq1@XXXXXX.onmicrosoft.com)
 
 		- Leave greeting as no greeting
 
