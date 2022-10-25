@@ -1,4 +1,4 @@
-## Lab 1: Planning and Provisioning Office 365
+## Lab 1: Planning and Provisioning Office 365 
 
 ### Exercise 1: Explore the various administrative portals.
 
