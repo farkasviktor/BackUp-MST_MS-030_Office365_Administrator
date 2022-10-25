@@ -1,4 +1,4 @@
-## Lab 9: Configuring SharePoint Online
+## Lab 9: Configuring SharePoint Online 
 
 ### Exercise 1: Configure SharePoint Online settings
 
